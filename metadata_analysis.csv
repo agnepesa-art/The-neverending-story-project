@@ -1,0 +1,11 @@
+Item,Type,Source / Provider,Metadata Standard (Source)
+Die unendliche Geschichte,Book,Biblioteca Salaborsa - Bologna,ISBD/MARC21/UniMarc
+Michael Ende,Person,Virtual International Authority File (VIAF),MARC21 Authority / VIAF / EAC-CPF
+Thienemann Verlag,CorporateBody,Deutsche Nationalbibliothek (DNB),GND / MARC21 Authority
+Blackletter,Conceptual Object,Typography / Font Repositories,Custom / Unicode Standard
+Biblioteca Salaborsa,Organization,Anagrafe delle Biblioteche Italiane (ICCU),EAC-CPF / ICCU Standard
+The Neverending Story (movie),Media / Movie,IMDb / Internet Movie Database,schema.org
+La storia infinita (poster),Artwork / Poster,Archivio Grafico / Collezioni Digitali,CDWA / DublinCore
+The Neverending Story (song),Track / Audio,Discogs / MusicBrainz,Music Ontology / Custom Metadata
+La historia interminable (theater Event),Event / Performance,Teatro / Agenzie di Spettacolo,schema.org / Custom Event
+The Neverending Story Part I (videogame),Media / Videogame,MobyGames / Gaming Databases,schema.org
