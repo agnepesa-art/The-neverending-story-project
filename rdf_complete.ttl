@@ -1,0 +1,321 @@
+@prefix aat: <http://vocab.getty.edu/aat/> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix core: <https://agnepesa-art.github.io/The-neverending-story-project/core-entities/> . 
+@prefix crm: <https://cidoc-crm.org/html/cidoc_crm/> .
+@prefix dbo: <https://dbpedia.org/ontology/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> . 
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gn: <http://www.geonames.org/> .
+@prefix gnd: <https://www.dnb.de/EN/gnd> .
+@prefix gndo: <https://d-nb.info/standards/elementset/gnd#> . 
+@prefix mo: <http://purl.org/ontology/mo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rda: <http://rdaregistry.info/Elements/a/> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix schema: <https://schema.org/> . 
+@prefix viaf: <https://viaf.org/viaf/> . 
+@prefix wd: <https://www.wikidata.org/wiki/> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix tns: <https://agnepesa-art.github.io/The-neverending-story-project/> . 
+
+core:die_unendliche_geschichte a bf:Text ;
+    bf:shelfMark "SNTED ENDEM UNE" ;
+    bf:shelfMarkDdc "833.914 Narrativa tedesca, 1945-1990" ;
+    bf:identifiedBy [ 
+        a bf:Isbn ;
+        rdf:value "9783522128001" 
+        ] ;
+    dcterms:creator core:person ; 
+    bf:extent "485 p. ; 21 cm" ;
+    dcterms:issued "1979"^^xsd:gYear ;
+    bf:language tns:german ;
+    bf:heldBy core:biblioteca_salaborsa; 
+    bf:title [ 
+        a bf:Title ; 
+        bf:mainTitle "Die unendliche Geschichte Von A bis Z mit Buchstaben und Bildern versehen von Roswitha Quadflieg"@de 
+    ] ,
+    [
+        a bf:VariantTitle ; 
+        bf:variantType "portion" ; 
+        bf:mainTitle "Die unendliche Geschichte"@de
+    ] , 
+    [
+        a bf:VariantTitle ; 
+        bf:variantType "translation" ; 
+        bf:mainTitle "The Neverending Story"@en 
+    ] ;
+    bf:contributor viaf:2480916 ; 
+    schema:locationCreated gn:3169070 ;
+    rda:P60163_has_place_of_publication gn:2825297 ;
+    crm:P56_bears_feature core:blackletter;
+    gndo:editor core:thienemann_verlag ; 
+    bf:subject tns:Neverending_story_Concept , wd:Q1077745 ; 
+    schema:genre wd:Q56451354 , wd:Q132311 .
+
+gn:2825297 a schema:Place ; 
+    rdfs:label "Stuttgart" ; 
+    schema:containedInPlace gn:2921044 .
+
+gn:2921044 a schema:Place ; 
+    rdfs:label "Germany" . 
+
+gn:3169070 a schema:Place ; 
+    rdfs:label "Rome" ; 
+    schema:containedInPlace gn:3175395 . 
+
+gn:3175395 a schema:Place ; 
+    rdfs:label "Italy" . 
+
+viaf:2480916 a foaf:Person ; 
+    foaf:name "Roswitha Quadflieg" ; 
+    bf:role <http://id.loc.gov/vocabulary/relators/ill> . 
+
+tns:german a bf:Language ;
+        owl:sameAs <http://id.loc.gov/vocabulary/languages/ger> ;
+        rdfs:label "German"@de . 
+
+tns:english a bf:Language ; 
+    owl:sameAs <http://id.loc.gov/vocabulary/languages/eng> ; 
+    rdfs:label "English"@en . 
+
+tns:italian a bf:Language ; 
+    owl:sameAs <http://id.loc.gov/vocabulary/languages/ita> ; 
+    rdfs:label "Italian"@it . 
+
+core:michael_ende a foaf:Person ; 
+    owl:sameAs viaf:34456245 ; 
+    owl:sameAs wd:Q76498 ; 
+    foaf:name "Michael Ende" ; 
+    schema:birthDate "1929-11-19"^^xsd:date ; 
+    schema:deathDate "1995-08-28"^^xsd:date ; 
+    schema:hasOccupation "writer" ; 
+    schema:knowsLanguage tns:german ; 
+    dbo:livedIn gn:3169070 ; 
+    foaf:made core:die_unendliche_geschichte ;
+    schema:birthPlace gn:2922530 ; 
+    foaf:made viaf:201222902 ;  
+    foaf:knows viaf:22652921 ; 
+    schema:parent viaf:12332578 . 
+
+viaf:201222902 a bf:Text ; 
+    bf:title "Jim Knopf und Lukas der Lokomotivführer". 
+
+viaf:22652921 a foaf:Person ;
+   foaf:name "Weitbrecht, Hansjörg" . 
+
+viaf:12332578 a foaf:Person ;
+    foaf:name "Edgar Ende" ; 
+    schema:hasOccupation "painter" .
+
+gn:2922530 a schema:Place ;
+    rdf:label "Garmisch-Partenkirchen" ; 
+    schema:containedInPlace gn:2921044 . 
+
+core:thienemann_verlag a gndo:CorporateBody ; 
+    rdfs:label "Publishing house" ;
+    owl:sameAs viaf:313263027 ; 
+    schema:member viaf:22652921 ; 
+    gndo:affiliation core:michael_ende ; 
+    gndo:editor viaf:201222902 ; 
+    gndo:editor core:die_unendliche_geschichte ; 
+    gndo:placeOfBusiness gn:2825297 ; 
+    schema:legalName "Thienemann-Esslinger Verlag GmbH" ; 
+    schema:alternateName "K. Thienemanns Verlag" ; 
+    foaf:homepage <https://www.thienemann.de/?srsltid=AfmBOorx-M_c0HGca-zQoN8Z1tdK-yhnrwZg_whru9uhrNDNbvUt1NZl> ; 
+    gndo:dateOfEstablishment "1849-06-01"^^xsd:date ; 
+    gndo:founder viaf:66900968 ; 
+    schema:hasAddress "Thienemann-Esslinger Verlag GmbH, Blumenstraße 36, D-70182 Stuttgart" . 
+
+viaf:66900968 a foaf:Person ; 
+    foaf:name "Karl Ludwig Christian Thienemann" . 
+
+core:blackletter a crm:E28_Conceptual_Object ; 
+    owl:sameAs aat:300200661 ; 
+    rdfs:label "Typeface" ; 
+    schema:name "Blackletter" ; 
+    schema:alternateName "Old English" ; 
+    crm:P127_has_narrower_term gnd:4155146-1 ; 
+    crm:P4_has_time-span [
+    a crm:E52_Time-Span ;
+    rdfs:label "From the 12th century until now" ;
+    crm:P82a_begin_of_the_begin "1101"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "2026"^^xsd:gYear 
+    ] ;
+    schema:countryOfOrigin gn:2921044 ; 
+    tns:bannedBy viaf:38190770 ; 
+    tns:bannedIn "1941"^^xsd:gYear ; 
+    schema:usedBy viaf:9815820 . 
+
+viaf:38190770 a foaf:Person ; 
+    foaf:name "Adolf Hitler" . 
+
+viaf:9815820 a foaf:Person ; 
+    foaf:name "Johann Gutenberg" . 
+
+gnd:4155146-1 a crm:E26_Physical_feature ; 
+    rdfs:label "Typeface" ; 
+    schema:name "Fraktur" . 
+
+tns:bannedBy a rdf:Property ;
+    rdfs:label "banned by" ;
+    rdfs:comment "The authority or entity that officially banned the resource." .
+
+tns:bannedIn a rdf:Property ;
+    rdfs:label "banned in" ;
+    rdfs:comment "The year or date when the resource was officially banned." .
+
+core:biblioteca_salaborsa a schema:Library ; 
+    owl:sameAs viaf:139355594 ;
+    dcterms:identifier "IT-BO0563" , "UBOSB" , "ERBO0297N" ; 
+    schema:name "Biblioteca Salaborsa" ;
+    schema:foundingDate "2001-12-12"^^xsd:date ; 
+    schema:founder tns:comune_Bologna ; 
+    schema:location gn:3181928 ; 
+    schema:hasAddress "Piazza del Nettuno, 3, 40124 Bologna" ; 
+    schema:openingHours "Mo, 14:00-20:00" ,
+                        "Tu-Fr, 09:00-20:00" ,
+                        "Sa, 09:00-19:00" ; 
+    dcterms:isPartOf tns:polo_bibliotecario_bolognese ; 
+    schema:email "bibliotecasalaborsa@comune.bologna.it" ;
+    foaf:homepage <https://www.bibliotecasalaborsa.it/> ;
+    schema:telephone "+39 0512194400" .
+
+tns:comune_Bologna a schema:Organization ; 
+    foaf:name "Comune di Bologna" ;
+    foaf:homepage <https://www.comune.bologna.it/> . 
+
+gn:3181928 a schema:Place ; 
+    rdfs:label "Bologna" ; 
+    schema:containedInPlace gn:3175395 . 
+
+tns:polo_bibliotecario_bolognese a schema:Organization ; 
+    foaf:name "Polo unificato bolognese" ;
+    dcterms:identifier "UBO" . 
+
+core:the_neverending_story_movie a schema:Movie ;
+    owl:sameAs wd:Q316555 ; 
+    dcterms:title "Die unendliche geschichte"@de ; 
+    dcterms:alternative "The neverending story"@en ; 
+    schema:producer viaf:148205982 ; 
+    schema:director viaf:84318625 ; 
+    bf:language tns:english , tns:italian; 
+    schema:datePublished "1984"^^xsd:gYear ;
+    schema:duration "PT94M"^^xsd:duration ; 
+    rda:publicationStatement "Milano, eagle Pictures 2006" ;
+    bf:title [
+        a bf:Title ; 
+        bf:mainTitle "Die unendliche Geschichte"@de 
+    ] , 
+    [
+        a bf:VariantTitle ; 
+        bf:variantType "translation" ;
+        bf:mainTitle "The neverending story"@en 
+    ] ; 
+    crm:P162_contains core:the_neverending_story_song ; 
+    schema:genre wd:Q157394 , wd:Q2143665 ; 
+    bf:heldBy core:biblioteca_salaborsa ;   
+    schema:isBasedOn core:die_unendliche_geschichte ; 
+    bf:identifiedBy [
+        a bf:Identifier ; 
+        rdf:value "RMS1545844" 
+        ] ; 
+    dcterms:subject tns:Neverending_story_Concept . 
+
+viaf:148205982 a schema:Organization ; 
+    foaf:name "Constantin Film" . 
+
+viaf:84318625 a foaf:Person ; 
+    foaf:name "Wolfgang Petersen" . 
+
+core:la_storia_infinita_poster a edm:ProvidedCHO ; 
+    edm:hasType schema:Poster ; 
+    dcterms:language tns:italian ; 
+    dcterms:creator viaf:54952490 ; 
+    bf:extent "100 x 150 cm" ; 
+    dcterms:title "La storia infinita" ; 
+    dcterms:format "jpeg" ; 
+    dcterms:date "1984"^^xsd:gYear ; 
+    edm:isRepresentationOf core:the_neverending_story_movie . 
+
+viaf:54952490 a foaf:Person ; 
+    foaf:name "Renato Casaro" .
+
+core:the_neverending_story_song a mo:Track ; 
+    owl:sameAs wd:Q2413048 ; 
+    dcterms:identifier "T8008177898" ; 
+    mo:composer viaf:84962213 , viaf:69355630 ; 
+    mo:performer viaf:102343738 ; 
+    dcterms:title "The neverending story" ; 
+    mo:genre wd:Q1298934 , wd:Q187760 ; 
+    dcterms:issued "1984"^^xsd:gYear ; 
+    schema:duration "PT3M32S"^^xsd:duration ; 
+    dcterms:language tns:english .  
+
+viaf:84962213 a foaf:Person ; 
+    foaf:name "Giorgio Moroder" . 
+
+viaf:69355630 a foaf:Person ; 
+    foaf:name "Keith Forsey" .
+
+viaf:102343738 a foaf:Person ; 
+    foaf:name "Limahl" . 
+
+core:la_historia_interminable_theater a schema:TheaterEvent ; 
+    schema:genre wd:Q2743 ; 
+    schema:director tns:Federico_Barrios_Fierro ; 
+    schema:duration "PT150M"^^xsd:duration ; 
+    schema:inLanguage tns:spanish ; 
+    schema:location wd:Q3815326 ; 
+    dcterms:title "La historia interminable - el musical" ; 
+    schema:startDate "2026-09-04"^^xsd:date ; 
+    schema:endDate "2026-09-20"^^xsd:date ; 
+    schema:producer tns:Beon_entertainment ; 
+    schema:isBasedOn core:die_unendliche_geschichte ; 
+    schema:about tns:Neverending_story_Concept . 
+
+tns:Federico_Barrios_Fierro a foaf:Person ; 
+    foaf:name "Federico Barrios Fierro" ;  
+    foaf:currentProject core:la_historia_interminable_theater ; 
+    foaf:homepage <https://es.linkedin.com/in/federico-barrios-fierro-6b4598268> ; 
+    schema:hasOccupation "Theater director" . 
+
+tns:spanish a bf:Language ; 
+    owl:sameAs <http://id.loc.gov/vocabulary/languages/spa> ; 
+    rdfs:label "Spanish"@es . 
+
+wd:Q3815326 a schema:Place ; 
+    schema:containedInPlace gn:6362308 . 
+
+tns:Beon_entertainment a schema:Organization ; 
+    foaf:homepage <https://www.beon-entertainment.com/es> . 
+
+core:the_neverending_story_videogame a schema:VideoGame ; 
+    owl:sameAs wd:Q55635499 ; 
+    schema:sameAs <https://rawg.io/games/the-neverending-story-part-i-auryn-quest> ; 
+    bf:title [
+        a bf:Title ; 
+        bf:mainTitle "Die unendliche geschichte: Auryn Quest. Part 1"@de 
+        ] , 
+        [
+        a bf:VariantTitle ; 
+        bf:variantType "translation" ; 
+        bf:mainTitle "The neverending story Part I - Auryn Quest"@en 
+        ] ; 
+    schema:creator tns:discreet_monsters ;
+    schema:datePublished "2002"^^xsd:gYear ; 
+    schema:genre wd:Q15613992 , wd:Q23916 ; 
+    schema:publisher wd:Q1408243 ; 
+    schema:gamePlatform wd:Q1406 ; 
+    schema:countryOfOrigin gn:2921044 ; 
+    schema:isBasedOn core:die_unendliche_geschichte ;
+    schema:about tns:Neverending_story_Concept . 
+
+tns:discreet_monsters a schema:Organization ; 
+    rdfs:label "developers" . 
+
+wd:Q1408243 a schema:Organization ; 
+    foaf:name "Octagon Entertainment" . 
+
+tns:Neverending_story_Concept a crm:E28_Conceptual_Object . 
