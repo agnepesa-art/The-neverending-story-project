@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Die unendliche Geschichte: A Digital Edition</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            font-family: 'EB Garamond', serif;
+            background-color: #faf6f0;
+            color: #222;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+
+        header, .metadata, .edition-section {
+            border-bottom: 1px solid #e0dcd5;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            font-weight: normal;
+        }
+
+        /* TEI Renditions replicated in CSS */
+        .center { text-align: center; }
+        .justify { text-align: justify; text-justify: inter-word; }
+        .red { color: #b32424; }
+        .green { color: #1c6b46; }
+        .black { color: #111; }
+        
+        .size-max { font-size: 2.8em; line-height: 1.1; }
+        .size-med { font-size: 1.5em; }
+        .size-min { font-size: 0.95em; }
+
+        /* Exact Font family mappings from tagsDecl */
+        .f-fraktur { 
+            font-family: 'UnifrakturMaguntia', serif; 
+            font-weight: normal;
+        }
+        .f-garamond { 
+            font-family: 'EB Garamond', serif; 
+        }
+        .f-boeklin { 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic;
+            font-weight: 700;
+        }
+        
+        /* Simulated Bodoni Face via CSS Type-Tuning */
+        .f-bodoni { 
+            font-family: 'Playfair Display', 'Didot', 'Times New Roman', serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .title-page {
+            border: 2px double #d0c0a8;
+            padding: 40px;
+            margin: 40px 0;
+            background-color: #fffcf7;
+            page-break-inside: avoid;
+        }
+
+        .title-page hr {
+            border: 0;
+            border-top: 1px solid #e0dcd5;
+            margin: 20px auto;
+            width: 50px;
+        }
+
+        /* Library Stamp Reconstruction */
+        .stamp-box {
+            border: 1.5px solid #444;
+            border-radius: 50%;
+            width: 220px;
+            height: 110px;
+            margin: 25px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.7em;
+            text-align: center;
+            line-height: 1.4;
+            color: #333;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: #fff;
+            position: relative;
+        }
+
+        .shelfmark {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #000;
+            position: absolute;
+            top: -22px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            text-transform: none;
+        }
+
+        /* Strictly Black and White Logo Reconstruction via Pure CSS Shapes */
+        .logo-box {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            color: #000;
+        }
+
+        .porcupine-graphic {
+            width: 50px;
+            height: 25px;
+            position: relative;
+            background: radial-gradient(ellipse at bottom left, #000 70%, transparent 72%);
+            border-radius: 100% 0 0 0;
+        }
+        .porcupine-graphic::after {
+            content: '';
+            position: absolute;
+            top: -10px; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(-45deg, #000, #000 2px, transparent 2px, transparent 6px);
+        }
+        .porcupine-graphic.flipped {
+            transform: scaleX(-1);
+        }
+
+        .brand-text-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'EB Garamond', serif;
+            font-size: 0.55em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .circle-s {
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            margin: 3px 0;
+            font-weight: bold;
+        }
+
+        .text-fragment {
+            margin-top: 50px;
+            line-height: 1.7;
+        }
+
+        .page-number-flow {
+            text-align: center;
+            margin: 30px 0;
+            color: #b32424;
+            font-size: 0.9em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .flower-ornament {
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        .said {
+            font-style: italic;
+        }
+
+        /* Metanarrative underlining */
+        .underlined-meta {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h2>Die unendliche geschichte: a digital edition</h2>
+        <p><strong>Author:</strong> Michael Ende</p>
+        <p><strong>Sponsor:</strong> University of Bologna (UniBO)</p>
+        <p><strong>XML-TEI encoding by:</strong> Agnese Pesaresi</p>
+        <p><strong>Edition:</strong> Scholarly digital edition (2026)</p>
+    </header>
+
+    <!-- SOURCE BIBLIOGRAPHY -->
+    <div class="edition-section">
+        <h3>Source Bibliography (SourceDesc)</h3>
+        <ul>
+            <li><strong>Edition 1 (German, 1979):</strong> <em>Die unendliche Geschichte</em>, K.Thienemanns Verlag, Stuttgart. ISBN: 9783522128001.</li>
+            <li><strong>Edition 2 (Italian, 1981):</strong> <em>La storia infinita</em>, Longanesi, Milano. ISBN: 8830400297. <br><small>Publisher's hardcover binding with red ruby cloth with the title embossed inside the Auryn design.</small></li>
+            <li><strong>Edition 3 (Italian, 2017):</strong> <em>La storia infinita</em>, Salani Editore, Milano. ISBN: 9788893810753.</li>
+        </ul>
+    </div>
+
+    <!-- FRONT MATTER - TITLE PAGES -->
+    <div class="front-matter">
+        
+        <!-- GERMAN EDITION 1979 -->
+        <div class="title-page">
+            <div class="red f-garamond center size-med">Michael Ende</div>
+            <hr>
+            <div class="green f-fraktur size-max center">Die <br> unendliche <br> Geschichte</div>
+            <div class="red f-garamond center size-min" style="margin-top: 15px;">
+                Von <br> 
+                <span class="f-fraktur" style="font-size: 1.2em;">A</span> bis <span class="f-fraktur" style="font-size: 1.2em;">Z</span>
+            </div>
+            <hr>
+            <div class="red f-garamond center size-min">
+                mit Buchstaben und Bildern <br>
+                versehen von<br>
+                Roswitha Quadflieg
+            </div>
+
+            <div class="stamp-box">
+                COMUNE DI BOLOGNA<br>
+                BIBLIOTECA<br>
+                SALA BORSA
+            </div>
+
+            <div class="red f-garamond center size-med" style="margin-top: 20px;">
+                K. Thienemanns Verlag<br>
+                <span class="size-min">Stuttgart</span>
+            </div>
+        </div>
+
+        <!-- ITALIAN EDITION 1981 -->
+        <div class="title-page">
+            <div class="red f-bodoni center size-min">Michael Ende</div>
+            <hr>
+            <div class="green f-boeklin size-max center">La <br> Storia <br> Infinita</div>
+            <div class="red f-bodoni center size-min" style="margin-top: 15px;">
+                dalla <br> 
+                A alla Z
+            </div>
+            <hr>
+            <div class="red f-garamond center size-min">
+                con capilettera di Antonio Basoli
+            </div>
+            <div class="red f-garamond center size-min" style="margin-top: 10px;">
+                traduzione di Amina Pandolfi
+            </div>
+            <hr>
+            <div class="red f-bodoni center size-min">
+                Longanesi &amp; C. — Milano
+            </div>
+        </div>
+
+        <!-- ITALIAN EDITION 2017 -->
+        <div class="title-page">
+            <!-- Completely Black & White Monochromatic CSS Logo -->
+            <div class="logo-box">
+                <div class="porcupine-graphic"></div>
+                <div class="brand-text-center">
+                    <span>SALANI</span>
+                    <div class="circle-s">S</div>
+                    <span>GL'ISTRICI</span>
+                </div>
+                <div class="porcupine-graphic flipped"></div>
+            </div>
+            
+            <hr>
+            <div class="black f-garamond center size-min">Michael Ende</div>
+            <!-- Title kept cleanly on a single horizontal line -->
+            <div class="black f-garamond size-max center" style="margin-top: 15px; font-size: 2.2em;">La storia infinita</div>
+            <div class="black f-garamond center size-min" style="margin-top: 10px;">
+                Romanzo dalla A alla Z
+            </div>
+            <hr>
+            <div class="black f-garamond center size-min">
+                con capilettera di Antonio Basoli
+            </div>
+            <div class="black f-garamond center size-min" style="margin-top: 5px;">
+                Traduzione di Amina Pandolfi
+            </div>
+
+            <div style="position: relative; margin-top: 40px;">
+                <div class="stamp-box">
+                    <div class="shelfmark">SBR 101641</div>
+                    COMUNE DI BOLOGNA<br>
+                    BIBLIOTECA<br>
+                    SALA BORSA RAGAZZI
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TEXT BODY FRAGMENT -->
+    <div class="text-fragment">
+        
+        <div class="page-number-flow">
+            <span class="flower-ornament">❧</span>
+            <span class="green f-garamond" style="font-weight: bold; font-size: 1.2em;">195</span>
+            <span class="flower-ornament">☙</span>
+        </div>
+
+        <p class="green justify size-min f-garamond">
+            timi pioli, emise un lieve sospiro e si guardò: la sua ampia veste bianca era tutta strappata, lacerata da pioli, spuntoni e spine. Be', che le <strong>lettere dell'alfabeto</strong> non le fossero amiche, non era cosa nuova per lei. L'antipatia del resto era reciproca.
+        </p>
+
+        <p class="green justify size-min f-garamond">
+            Ora vedeva davanti a sè l'uovo, con l'ingresso rotondo dove finiva la scala. Vi entrò e l'apertura si richiuse all'istante dietro di lei. Senza un sol gesto rimase lì nel buio, in attesa di ciò che sarebbe accaduto.
+        </p>
+
+        <p class="green justify size-min f-garamond">
+            Ma per un lungo, lunghissimo momento, non accadde assolutamente nulla.
+        </p>
+
+        <p class="green size-min justify f-garamond">
+            <span class="said">«Eccomi, sono qui»</span>, disse finalmente l'<strong>Infanta Imperatrice</strong> a voce bassa nell'oscurità. La sua voce riecheggiò come se avesse parlato in una grande sala deserta. Oppure era un'altra voce più bassa che le aveva risposto con le sue stesse parole?
+        </p>
+
+        <p class="green justify size-min f-garamond">
+            A poco a poco riuscì a individuare in mezzo a tutto quel buio un debole bagliore rossastro. Questo irradiava da un libro che ondeggiava sospeso nell'aria, aperto, proprio nel mezzo dello spazio a forma di uovo. Il libro pendeva obliquo, così che se ne poteva vedere il dorso. Era rilegato in seta color rubino cupo e, come sull'<strong>amuleto</strong> che l'Infanta Imperatrice portava al collo, sulla copertina si vedevano due serpenti che si mordevano la coda, formando un ovale. E in quell'ovale stava il titolo:
+        </p>
+
+        <p class="center">
+            <span class="green f-boeklin size-med">La Storia Infinita</span>
+        </p>
+
+        <!-- Inline Metanarrative Underlined Text -->
+        <p class="red justify f-garamond size-min">
+            <span class="underlined-meta">I pensieri di <strong>Bastiano</strong> si confusero. Ma quello era il libro che stava leggendo in quel momento! Lo guardò ancora attentamente. Sì, non c'era alcun dubbio, quello di cui si parlava nel racconto era il libro che lui aveva in mano. Ma come poteva questo libro comparire come oggetto nella storia che esso stesso narrava?</span>
+        </p>
+
+        <p class="green justify f-garamond size-min">
+            L'<strong>Infanta Imperatrice</strong> si era avvicinata e ora, dall'altra parte del libro ondeggiante nell'aria, vide il volto di un <strong>uomo</strong> illuminato dal basso da una luce azzurrognola che veniva dalle pagine aperte. Quel bagliore verde-azzurro veniva dalla scrittura del libro, che era appunto di quel colore.
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>
