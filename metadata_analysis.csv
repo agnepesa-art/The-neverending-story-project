@@ -6,6 +6,6 @@ Blackletter,Conceptual Object,Typeface,Typography / Font Repositories,Custom / U
 Biblioteca Salaborsa,Organization,-,Anagrafe delle Biblioteche Italiane (ICCU),EAC-CPF / ICCU Standard
 The Neverending Story (movie),Media,Movie,IMDb / Internet Movie Database,schema
 La storia infinita (poster),Artwork,Poster, Digital Collections / Graphic Archives, CDWA / DublinCore
-The Neverending Story (song),Track,Digital / Audio,Discogs / MusicBrainz,Music Ontology / Custom Metadata
-La historia interminable (theater Event),Event,-, / Performance,Theater / Show production agencies,schema / Custom Event
-The Neverending Story Part I (videogame),Media,Videogame, / Videogame,MobyGames / Gaming Databases,schema
+The Neverending Story (song),Track,Digital,Discogs / MusicBrainz,Music Ontology / Custom Metadata
+La historia interminable (theater Event),Event,Performance,Theater / Show production agencies,schema / Custom Event
+The Neverending Story Part I (videogame),Media,Videogame,MobyGames / Gaming Databases,schema
