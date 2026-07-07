@@ -21,13 +21,14 @@
 @prefix tns: <https://agnepesa-art.github.io/The-neverending-story-project/> . 
 
 core:die_unendliche_geschichte a bf:Text ;
+    owl:sameAs viaf:184013100 ;
     bf:shelfMark "SNTED ENDEM UNE" ;
     bf:shelfMarkDdc "833.914 Narrativa tedesca, 1945-1990" ;
     bf:identifiedBy [ 
         a bf:Isbn ;
         rdf:value "9783522128001" 
         ] ;
-    dcterms:creator core:person ; 
+    dcterms:creator core:michael_ende ; 
     bf:extent "485 p. ; 21 cm" ;
     dcterms:issued "1979"^^xsd:gYear ;
     bf:language tns:german ;
@@ -71,6 +72,10 @@ gn:3175395 a schema:Place ;
 viaf:2480916 a foaf:Person ; 
     foaf:name "Roswitha Quadflieg" ; 
     bf:role <http://id.loc.gov/vocabulary/relators/ill> . 
+
+wd:Q1077745 a schema:Person ; 
+    rdfs:label "Fictional character" 
+    schema:name "Bastian Balthazar Bux" . 
 
 tns:german a bf:Language ;
         owl:sameAs <http://id.loc.gov/vocabulary/languages/ger> ;
@@ -131,7 +136,7 @@ core:thienemann_verlag a gndo:CorporateBody ;
 viaf:66900968 a foaf:Person ; 
     foaf:name "Karl Ludwig Christian Thienemann" . 
 
-core:blackletter a crm:E28_Conceptual_Object ; 
+core:blackletter a crm:E28_Conceptual_Object , crm:E26_Physical_feature ; 
     owl:sameAs aat:300200661 ; 
     rdfs:label "Typeface" ; 
     schema:name "Blackletter" ; 
@@ -216,6 +221,7 @@ core:the_neverending_story_movie a schema:Movie ;
     crm:P162_contains core:the_neverending_story_song ; 
     schema:genre wd:Q157394 , wd:Q2143665 ; 
     bf:heldBy core:biblioteca_salaborsa ;   
+    dcterms:format "DVD" ;
     schema:isBasedOn core:die_unendliche_geschichte ; 
     bf:identifiedBy [
         a bf:Identifier ; 
@@ -313,6 +319,7 @@ core:the_neverending_story_videogame a schema:VideoGame ;
     schema:about tns:Neverending_story_Concept . 
 
 tns:discreet_monsters a schema:Organization ; 
+    foaf:name "Discreet monsters" ;
     rdfs:label "developers" . 
 
 wd:Q1408243 a schema:Organization ; 
