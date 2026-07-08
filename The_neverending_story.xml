@@ -138,7 +138,7 @@
                     </person>
                 </listPerson>
                 <listPerson type="fictional">
-                    <person xml:id="BBB" sameAs="ww.wikidata.org/wiki/Q1077745">
+                    <person xml:id="BBB" sameAs="https://www.wikidata.org/wiki/Q1077745">
                         <persName xml:lang="de">Bastian Balthasar Bux</persName>
                         <persName xml:lang="en">Bastian Balthasar Bux</persName>
                         <persName xml:lang="it">Bastiano Baldassarre Bucci</persName>
