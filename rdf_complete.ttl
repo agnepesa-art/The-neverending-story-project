@@ -74,7 +74,7 @@ viaf:2480916 a foaf:Person ;
     bf:role <http://id.loc.gov/vocabulary/relators/ill> . 
 
 wd:Q1077745 a schema:Person ; 
-    rdfs:label "Fictional character" 
+    rdfs:label "Fictional character" ;
     schema:name "Bastian Balthazar Bux" . 
 
 tns:german a bf:Language ;
