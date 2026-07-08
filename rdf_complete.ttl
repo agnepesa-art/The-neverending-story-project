@@ -200,9 +200,7 @@ tns:polo_bibliotecario_bolognese a schema:Organization ;
     dcterms:identifier "UBO" . 
 
 core:the_neverending_story_movie a schema:Movie ;
-    owl:sameAs wd:Q316555 ; 
-    dcterms:title "Die unendliche geschichte"@de ; 
-    dcterms:alternative "The neverending story"@en ; 
+    owl:sameAs wd:Q316555 ;
     schema:producer viaf:148205982 ; 
     schema:director viaf:84318625 ; 
     bf:language tns:english , tns:italian; 
