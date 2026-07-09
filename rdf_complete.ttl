@@ -121,6 +121,7 @@ gn:2922530 a schema:Place ;
 core:thienemann_verlag a gndo:CorporateBody ; 
     rdfs:label "Publishing house" ;
     owl:sameAs viaf:313263027 ; 
+    dcterms:identifier gnd:10102676-6 ; 
     schema:member viaf:22652921 ; 
     gndo:affiliation core:michael_ende ; 
     gndo:editor viaf:201222902 ; 
@@ -234,6 +235,7 @@ viaf:84318625 a foaf:Person ;
     foaf:name "Wolfgang Petersen" . 
 
 core:la_storia_infinita_poster a edm:ProvidedCHO ; 
+    dcterms:identifier "https://www.themoviedb.org/collection/91430-die-unendliche-geschichte-filmreihe/images/posters?language=it-IT" ; 
     edm:hasType schema:Poster ; 
     dcterms:language tns:italian ; 
     dcterms:creator viaf:54952490 ; 
