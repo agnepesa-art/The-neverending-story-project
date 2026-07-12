@@ -1,0 +1,345 @@
+@prefix aat: <http://vocab.getty.edu/aat/> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> . 
+@prefix crm: <https://cidoc-crm.org/html/cidoc_crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gn: <http://www.geonames.org/> .
+@prefix gndo: <https://d-nb.info/standards/elementset/gnd#> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rda: <http://rdaregistry.info/Elements/a/> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix schema: <https://schema.org/> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> . 
+@prefix viaf: <https://viaf.org/viaf/> . 
+@prefix wd: <https://www.wikidata.org/wiki/> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix tnse: <https://github.com/agnepesa-art/The-neverending-story-project/tree/main/edition> .
+
+tnse:die_unendliche_geschichte_digital_edition a bf:Dataset ; 
+    dcterms:creator tnse:Michael_Ende ; 
+    schema:sponsor viaf:155886025 ; 
+    dcterms:title "Die unendliche Geschichte: a digital edition" ; 
+    dcterms:contributor tnse:Agnese_Pesaresi ; 
+    dcterms:publisher viaf:155886025 ; 
+    dcterms:date "2026"^^xsd:gYear ;
+    dcterms:language tnse:english ; 
+    dcterms:identifier "urn:isbn:0-00-00000-0" ; 
+    dcterms:accessRights "restricted" ;
+    dcterms:rights "distributed for academic purposes" ; 
+    dcterms:source tnse:ger_ed_1979 , tnse:it_ed_1981 , tnse:it_ed_2017 ; 
+    dcterms:description "Text encoded for the final examination for the Information Science and Cultural Heritage course at the University of Bologna" ; 
+    dcterms:relation <https://www.unibo.it/it/studiare/insegnamenti-competenze-trasversali-moocs/insegnamenti/insegnamento/2025/542134> , viaf:155886025 ; 
+    dcterms:subject wd:Q1077745 , wd:Q8100750 , wd:Q58100675 ;
+    bf:genre wd:Q132311 , wd:Q531067, wd:Q56451354 ; 
+    schema:about tnse:alphabet , tnse:metanarration. 
+
+tnse:Michael_Ende a foaf:Person ; 
+    owl:sameAs viaf:34456245 ; 
+    foaf:name "Michael Ende" ; 
+    dcterms:description "german writer, author of The neverending story, Jim Button and Luke the Engine Driver and Momo" ; 
+    foaf:made viaf:184013100 ;
+    foaf:made viaf:201222902 ; 
+    foaf:made viaf:195153184.
+
+viaf:155886025 a schema:Organization ; 
+    schema:name "Università di Bologna"@it ; 
+    schema:alternateName "University of Bologna"@en ; 
+    schema:location gn:3181928 ;
+    schema:address "via Zamboni 32" . 
+
+tnse:german a bf:Language ;
+        owl:sameAs <http://id.loc.gov/vocabulary/languages/ger> ;
+        rdfs:label "German"@de . 
+
+tnse:english a bf:Language ; 
+    owl:sameAs <http://id.loc.gov/vocabulary/languages/eng> ; 
+    rdfs:label "English"@en . 
+
+tnse:italian a bf:Language ; 
+    owl:sameAs <http://id.loc.gov/vocabulary/languages/ita> ; 
+    rdfs:label "Italian"@it . 
+    
+tnse:Agnese_Pesaresi a foaf:Person ; 
+    foaf:name "Agnese Pesaresi" ; 
+    foaf:currentProject "https://github.com/agnepesa-art/The-neverending-story-project/tree/main" . 
+
+gn:3181928 a schema:Place ; 
+    rdfs:label "Bologna" ;
+    schema:containedInPlace gn:3175395 . 
+ 
+gn:3175395 a schema:Place ; 
+    rdfs:label "Italy" . 
+
+viaf:201222902 a bf:Text ; 
+    dcterms:title "Jim Button and Luke the Engine Driver"@en . 
+
+viaf:195153184 a bf:Text ; 
+    dcterms:title "Momo"@en . 
+
+tnse:ger_ed_1979 a bf:Instance; 
+    bf:language tnse:german ;
+    dcterms:creator viaf:34456245 ; 
+    dcterms:title "Die unendliche Geschichte" ; 
+    dcterms:publisher viaf:313263027 ; 
+    dcterms:date "1979"^^xsd:gYear ; 
+    rda:P60163_has_place_of_publication gn:2825297 ;
+    dcterms:identifier "urn:isbn:9783522128001" ;
+    owl:sameAs viaf:184013100 ;
+    crm:P56_bears_feature tnse:f-fraktur ; 
+    crm:P56_bears_feature tnse:f-garamond ; 
+    bf:heldBy viaf:139355594 ; 
+    bf:contribution [
+        a bf:Contribution ; 
+        bf:agent viaf:2480916 ; 
+        bf:role "<http://id.loc.gov/vocabulary/relators/ill>" 
+        ] ;  
+    schema:hasPart tnse:frontispiece_1. 
+
+tnse:it_ed_1981 a bf:Instance ; 
+    bf:language tnse:italian ;
+    dcterms:creator viaf:34456245 ; 
+    dcterms:title "La storia infinita" ; 
+    dcterms:publisher wd:Q3259067 ; 
+    dcterms:date "1981"^^xsd:gYear ; 
+    rda:P60163_has_place_of_publication gn:9033675 ;
+    dcterms:identifier "urn:isbn:8830400297" ;
+    dcterms:description "Publisher's hardcover binding with red ruby cloth with the title embossed inside the Auryn design" ; 
+    crm:P56_bears_feature tnse:f-boeklin ;
+    crm:P56_bears_feature tnse:f-bodoni ;
+    bf:contribution [
+        a bf:Contribution ; 
+        bf:agent viaf:69202246 ; 
+        bf:role <http://id.loc.gov/vocabulary/relators/ill>
+        ] ;  
+    bf:contribution [
+        a bf:Contribution ; 
+        bf:agent viaf:311223034 ; 
+        bf:role <http://id.loc.gov/vocabulary/relators/trl>
+        ] ;  
+    schema:hasPart tnse:frontispiece_2 , tnse:page_195.  
+
+tnse:it_ed_2017 a bf:Instance ; 
+    bf:language tnse:italian ;
+    dcterms:creator viaf:34456245 ; 
+    dcterms:title "La storia infinita" ; 
+    dcterms:publisher viaf:294672768 ; 
+    dcterms:date "2017"^^xsd:gYear ; 
+    rda:P60163_has_place_of_publication gn:9033675 ;
+    dcterms:identifier "urn:isbn:9788893810753" ; 
+    crm:P56_bears_feature tnse:f-garamond ; 
+    bf:contribution [
+        a bf:Contribution ; 
+        bf:agent viaf:69202246 ; 
+        bf:role <http://id.loc.gov/vocabulary/relators/ill>
+        ] ;  
+    bf:contribution [
+        a bf:Contribution ; 
+        bf:agent viaf:311223034 ; 
+        bf:role <http://id.loc.gov/vocabulary/relators/trl>
+        ] ;  
+    schema:hasPart tnse:frontispiece_3 . 
+
+viaf:313263027 a gndo:CorporateBody ; 
+    rdfs:label "Publishing house" ; 
+    schema:name "K. Thienemanns Verlag" . 
+
+gn:2825297 a schema:Place ; 
+    rdfs:label "Stuttgart" . 
+
+wd:Q3259067 a gndo:CorporateBody ; 
+    rdfs:label "Publishing house" ; 
+    schema:name "Longanesi" . 
+
+gn:9033675 a schema:Place ; 
+    rdfs:label "Milan" . 
+
+viaf:294672768 a gndo:CorporateBody ; 
+    rdfs:label "Publishing house" ; 
+    schema:name "Salani Editore" . 
+
+<https://www.unibo.it/it/studiare/insegnamenti-competenze-trasversali-moocs/insegnamenti/insegnamento/2025/542134>
+    a rdfs:Resource ;
+    rdfs:label "Information Science and Cultural Heritage course" .
+
+tnse:f-fraktur a crm:E28_Conceptual_Object ; 
+    rdfs:label "Typeface" ; 
+    schema:name "Blackletter" ; 
+    owl:sameAs aat:30020066 . 
+
+tnse:f-garamond a crm:E28_Conceptual_Object ; 
+    rdfs:label "Typeface" ; 
+    schema:name "Garamond" ; 
+    owl:sameAs wd:Q246110 . 
+
+tnse:f-boeklin a crm:E28_Conceptual_Object ; 
+    rdfs:label "Typeface" ; 
+    schema:name "Arnold Boeklin" . 
+
+tnse:f-bodoni a crm:E28_Conceptual_Object ; 
+    rdfs:label "Typeface" ; 
+    schema:name "Bodoni" ; 
+    owl:sameAs wd:Q833029 . 
+ 
+viaf:139355594 a schema:Organization ; 
+    rdfs:label "Biblioteca Salaborsa" ;  
+    dcterms:description "Public library in Bologna, Italy" . 
+
+viaf:2480916 a schema:Person ; 
+    foaf:name "Roswitha Quadflieg" ; 
+    dcterms:description "German writer and graphic designer, created the original illustration for the first edition of The neverending story, born in 1949" ; 
+    schema:birthDate "1949"^^xsd:gYear .
+
+viaf:69202246 a schema:Person ; 
+    foaf:name "Antonio Basoli" ; 
+    dcterms:description "bolognese painter, lived 1774–1848, famous for his work on the Alfabeto pittorico" ; 
+    schema:birthDate "1774"^^xsd:gYear ; 
+    schema:deathDate "1848"^^xsd:gYear ; 
+    foaf:made viaf:208713907 . 
+
+viaf:208713907 a bf:Text ; 
+    dcterms:title "Alfabeto pittorico"@it . 
+
+viaf:311223034 a foaf:Person ; 
+    foaf:name "Amina Pandolfi" ; 
+    dcterms:description "italian translator". 
+
+wd:Q1077745 a schema:Person ; 
+    rdfs:label "Fictional character" ;
+    schema:name "Bastian Balthazar Bux"@de ;
+    schema:alternateName "Bastian Balthasar Bux"@en ;
+    schema:alternateName "Bastiano Baldassarre Bucci"@it ;
+    dcterms:description "Main character of the The neverending story. While reading the book he stole a library, he finds himself as a character inside the story. In the pages following the one encoded later, he is called inside the book in order to save Fantasia and his people" . 
+
+wd:Q8100750 a schema:Person ; 
+    rdfs:label "Fictional character" ;
+    schema:name "Kindliche Kaiserin"@de ;
+    schema:alternateName "Childlike Empress"@en ;
+    schema:alternateName "Infanta Imperatrice"@it ;
+    dcterms:description "Empress of Fantasia, in the page encoded she is climbing the steps towards the Old Man of the Wandering Mountain seeking to call Bastian into her world and save it by giving her a new name" . 
+
+wd:Q58100675 a schema:Person ; 
+    rdfs:label "Fictional character" ;
+    schema:name "Alte vom Wandernden Berge"@de ;
+    schema:alternateName "Old Man of Wandering Mountain"@en ;
+    schema:alternateName "Vecchio della Montagna Vagante"@it ;
+    dcterms:description "Guardian of the book of life in which is written the entire story of Fantasia and his people. This book appears in page 195 and is described with the same phisical characteristics as The neverending story volume in his original edition" . 
+
+tnse:alphabet a skos:Concept ; 
+    skos:prefLabel "alphabet" ; 
+    dcterms:description "alphabet motif recurrent throughout the text, reference to combinatory literature, literary genre that uses the properties of language in a playful way" . 
+
+tnse:metanarration a skos:Concept ; 
+    skos:prefLabel "metanarration" ; 
+    dcterms:description "theme of the metanarration, the book that the extradiegetic reader is reading is the same book that Bastiano is reading and the same in the story inside the fictional book" . 
+
+tnse:frontispiece_1 a schema:CreativeWork ; 
+    dcterms:hasPart <https://tnse.org/book/docAuthor/michael-ende> ,
+                    <https://tnse.org/book/docTitle/die-unendliche-geschichte> , 
+                    <https://tnse.org/book/byline/roswitha-quadflieg> ,
+                    <https://tnse.org/book/figure/salaborsa-timbro> ,
+                    <https://tnse.org/book/docImprint/thienemanns> ;
+    schema:text """ Michael Ende 
+                    Die unendliche Geschichte 
+                    von A biz Z 
+                    mit Buchstaben und Bildern
+                    versehen von
+                    Roswitha Quadflieg
+                        "salaborsa-timbro"
+                    K. Thienemanns Verlag"""@de ; 
+    skos:note "type=title_page" . 
+
+<https://tnse.org/book/figure/salaborsa-timbro> a schema:ImageObject ; 
+    schema:name "salaborsa timbro" ; 
+    schema:contentURL "https://github.com/agnepesa-art/The-neverending-story-project/blob/main/edition/salaborsa_timbro.jpg" . 
+
+tnse:frontispiece_2 a schema:CreativeWork ; 
+    dcterms:hasPart <https://tnse.org/book/docAuthor/michael-ende> ,
+                    <https://tnse.org/book/docTitle/la-storia-infinita> , 
+                    <https://tnse.org/book/byline/antonio-basoli> ,
+                    <https://tnse.org/book/byline/amina-pandolfi> ,
+                    <https://tnse.org/book/docImprint/longanesi> ;
+    schema:text """ Michael Ende 
+                    La storia infinita  
+                    dalla A alla Z 
+                    con capilettera di 
+                    Antonio Basoli 
+                    traduzione di 
+                    Amina Pandolfi 
+                    Longanesi &amp; C. Milano"""@it ; 
+    skos:note "type=title_page" . 
+
+tnse:frontispiece_3 a schema:CreativeWork ; 
+    dcterms:hasPart <https://tnse.org/book/figure/salani-istrici-logo> , 
+                    <https://tnse.org/book/docAuthor/michael-ende> ,
+                    <https://tnse.org/book/docTitle/la-storia-infinita> , 
+                    <https://tnse.org/book/byline/antonio-basoli> ,
+                    <https://tnse.org/book/byline/amina-pandolfi> ,
+                    <https://tnse.org/book/figure/salaborsa-timbro-ragazzi> ;
+    schema:text """ "salani_istrici-logo" 
+                    Michael Ende 
+                    La storia infinita  
+                    dalla A alla Z 
+                    con capilettera di 
+                    Antonio Basoli 
+                    traduzione di 
+                    Amina Pandolfi 
+                    "salaborsa-timbro-ragazzi"""@it ; 
+    skos:note "type=title_page" . 
+
+<https://tnse.org/book/figure/salani-istrici-logo> a schema:ImageObject ; 
+    schema:name "salani istrici logo" ; 
+    schema:contentURL "https://github.com/agnepesa-art/The-neverending-story-project/blob/main/edition/salani_istrici_logo.jpg" . 
+
+<https://tnse.org/book/figure/salaborsa_timbro_ragazzi> a schema:ImageObject ; 
+    schema:name "salaborsa timbro ragazzi" ; 
+    schema:contentURL "https://github.com/agnepesa-art/The-neverending-story-project/blob/main/edition/salaborsa_timbro_ragazzi.jpg" . 
+
+tnse:page_195 a schema:CreativeWork ; 
+    dcterms:hasPart <https://tnse.org/book/fw/page-number> ,
+                    <https://tnse.org/book/p/timi-pioli-emise> ,
+                    <https://tnse.org/book/p/ora-vedeva-davanti>, 
+                    <https://tnse.org/book/p/ma-per-un-lungo> , 
+                    <https://tnse.org/book/p/eccomi-sono-qui> , 
+                    <https://tnse.org/book/p/a-poco-a-poco> , 
+                    <https://tnse.org/book/p/La-storia-infinita> , 
+                    <https://tnse.org/book/p/i-pensieri-di> ,
+                    <https://tnse.org/book/p/L'infanta-imperatrice> ; 
+    schema:text """page_195
+                timi pioli, emise un lieve sospiro e si guardò: la sua ampia veste 
+                bianca era tutta strappata, lacerata da pioli, spuntoni e spine. 
+                Be', che le lettere dell'alfabeto non le fossero amiche, non era 
+                cosa nuova per lei. L'antipatia del resto era reciproca. 
+                Ora vedeva davanti a sè l'uovo, con l'ingresso rotondo dove 
+                finiva la scala. Vi entrò e l'apertura si richiuse all'istante dietro 
+                di lei. Senza un sol gesto rimase lì nel buio, in attesa di ciò che 
+                sarebbe accaduto.
+                Ma per un lungo, lunghissimo momento, non accadde assolu
+                tamente nulla. 
+                "Eccomi, sono qui", disse finalmente l'Infanta Imperatrice a  
+                voce bassa nell'oscurità. La sua voce riecheggiò come se avesse 
+                parlato in una grande sala deserta. Oppure era un'altra voce più 
+                bassa che le aveva risposto con le sue stesse parole? 
+                A poco a poco riuscì a individuare in mezzo a tutto quel buio
+                un debole bagliore rossastro. Questo irradiava da un libro che on
+                deggiava sospeso nell'aria, aperto, proprio nel mezzo dello spazio 
+                a forma di uovo. Il libro pendeva obliquo, così che se ne poteva 
+                vedere il dorso. Era rilegato in seta color rubino cupo e, come sul
+                l'amuleto che l'Infanta Imperatrice portava al collo, sulla coperti 
+                na si vedevano due serpenti che si mordevano la coda, formando 
+                un ovale. E in quell'ovale stava il titolo:
+                                La storia infinita 
+                I pensieri di Bastiano si confusero. Ma quello era il libro che sta
+                va leggendo in quel momento! Lo guardò ancora attentamente. 
+                Sì, non c'era alcun dubbio, quello di cui si parlava nel racconto 
+                era il libro che lui aveva in mano. Ma come poteva questo libro 
+                comparire come oggetto nella storia che esso stesso narrava?
+                L'Infanta Imperatrice si era avvicinata e ora, dall'altra parte del 
+                libro ondeggiante nell'aria, vide il volto di un uomo illuminato dal
+                basso da una luce azzurrognola che veniva dalle pagine aperte. 
+                Quel bagliore verde-azzurro veniva dalla scrittura del libro, che 
+                era appunto di quel colore."""@it ; 
+    skos:note [
+        rdfs:label "entire_page" 
+    ] . 
+        
