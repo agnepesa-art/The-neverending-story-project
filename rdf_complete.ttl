@@ -85,7 +85,8 @@ tns:Neverending_story a bf:Text ;
         bf:variantType "translation" ;
         bf:mainTitle "La historia interminable"@en 
     ] ; 
-    schema:locationCreated gn:3169070 . 
+    schema:locationCreated gn:3169070 ; 
+    gndo:editor core:thienemann_verlag . 
 
 gn:2825297 a schema:Place ; 
     rdfs:label "Stuttgart" ; 
@@ -136,7 +137,8 @@ core:michael_ende a foaf:Person ;
     schema:parent viaf:12332578 . 
 
 viaf:201222902 a bf:Text ; 
-    bf:title "Jim Knopf und Lukas der Lokomotivführer". 
+    bf:title "Jim Knopf und Lukas der Lokomotivführer" ; 
+    gndo:editor core:thienemann_verlag . 
 
 viaf:22652921 a foaf:Person ;
    foaf:name "Weitbrecht, Hansjörg" . 
@@ -155,8 +157,6 @@ core:thienemann_verlag a gndo:CorporateBody ;
     dcterms:identifier gnd:10102676-6 ; 
     schema:member viaf:22652921 ; 
     gndo:affiliation core:michael_ende ; 
-    gndo:editor viaf:201222902 ; 
-    gndo:editor tns:first_edition , core:die_unendliche_geschichte  ; 
     gndo:placeOfBusiness gn:2825297 ; 
     schema:legalName "Thienemann-Esslinger Verlag GmbH" ; 
     schema:alternateName "K. Thienemanns Verlag" ; 
