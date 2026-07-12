@@ -27,7 +27,11 @@ core:die_unendliche_geschichte a bf:Item ;
         a bf:Isbn ;
         rdf:value "9783522128001" 
         ] ;
-    dcterms:creator core:michael_ende ; 
+   bf:contribution [
+        a bf:Contribution ; 
+        bf:agent core:michael_ende ; 
+        bf:role <http://id.loc.gov/vocabulary/relators/aut>
+        ] ; 
     bf:extent "485 p. ; 21 cm" ;
     dcterms:issued "1979"^^xsd:gYear ;
     bf:language tns:german ;
@@ -44,11 +48,15 @@ core:die_unendliche_geschichte a bf:Item ;
     bf:contribution [
         a bf:Contribution ; 
         bf:agent viaf:2480916 ; 
-        bf:role "<http://id.loc.gov/vocabulary/relators/ill>" 
+        bf:role <http://id.loc.gov/vocabulary/relators/ill>
         ] ;        
     rda:P60163_has_place_of_publication gn:2825297 ;
     crm:P56_bears_feature core:blackletter;
-    gndo:editor core:thienemann_verlag ; 
+    bf:contribution [
+        a bf:Contribution ; 
+        bf:agent core:thienemann_verlag ; 
+        bf:role http://id.loc.gov/vocabulary/relators/edt
+        ] ; 
     bf:subject wd:Q1077745 ; 
     bf:itemOf tns:first_edition ; 
     schema:genre wd:Q56451354 , wd:Q132311 .
