@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Header statement and declarations mapping the source namespaces to the HTML output transformation -->
 <xsl:stylesheet version="1.0" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     exclude-result-prefixes="tei">
     
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
-    
+
+    <!--matching the whole document in order to create a new html page, extract the TEI title statement to construct the new HTML home, create a link to the external .css stylesheet-->
     <xsl:template match="/">
         <html lang="en">
             <head>
@@ -21,14 +23,16 @@
                     <header>
                         <h1><xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/></h1>
                     </header>
-                    
+    <!--extraction of the data from the file description into main paragraphs using class-->
                     <h2>Document Metadata and Project Description</h2>
                     <div class="metadata-section">
+                        <!--Section 1: Digital edition statement-->
                         <div class="card">
                             <h4>Digital Edition Statement</h4>
                             <p><strong>Edition:</strong> <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:editionStmt/tei:edition"/></p>
                             <p><strong>Encoder:</strong> <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:name"/> (<xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:resp"/>)</p>
                             <p>
+                               <!--automatically transforming TEI name references into clickable HTML hyperlinks.-->
                                 <strong>Project Context:</strong> 
                                 <xsl:for-each select="tei:TEI/tei:teiHeader/tei:encodingDesc/tei:projectDesc/tei:p/node()">
                                     <xsl:choose>
@@ -44,6 +48,7 @@
                                 </xsl:for-each>
                             </p>
                         </div>
+                         <!--Section 2: Main themes of the book -->
                         <xsl:if test="tei:TEI/tei:teiHeader/tei:encodingDesc/tei:classDecl/tei:taxonomy/tei:category">
                             <div class="card">
                                 <h4>Project Taxonomy &amp; Themes</h4>
@@ -55,7 +60,7 @@
                                 </xsl:for-each>
                             </div>
                         </xsl:if>
-                        
+                        <!--Section 3: Distribution of the Digital resources-->
                         <div class="card">
                             <h4>Distribution and Origin</h4>
                             <p><strong>Location:</strong> <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:address/tei:street"/>, <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:pubPlace"/></p>
@@ -63,10 +68,66 @@
                             <p><strong>Status:</strong> <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p"/></p>
                             <p><strong>Creation Info:</strong> <xsl:value-of select="tei:TEI/tei:teiHeader/tei:profileDesc/tei:creation"/></p>
                         </div>
+                        
+                        <!--Section 4: Bibliography of the three editions-->
+                        <div class="card">
+                            <h4>Bibliography</h4> 
+                            <ul class="bibl-list">
+                                <xsl:for-each select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:listBibl/tei:bibl">
+                                    <li>
+                                        <span class="bibl-number">
+                                            <xsl:value-of select="@n"/>.
+                                        </span>
+                                        <span class="bibl-title">
+                                            <xsl:value-of select="tei:title[@type='main']"/>
+                                        </span>
+                                        <span class="bibl-details">
+                                            <xsl:text> (</xsl:text>
+                                            <xsl:value-of select="tei:date"/>
+                                            <xsl:text>). </xsl:text>
+                                            <xsl:text>ISBN: </xsl:text>
+                                            <xsl:value-of select="tei:idno[@type='ISBN']"/>
+                                            <xsl:text>.</xsl:text>
+                                        </span>
+                                        <xsl:if test="tei:idno[@type='VIAF']">
+                                            <span class="bibl-link">
+                                                <xsl:text> Authority File: </xsl:text>
+                                                <a href="{tei:idno[@type='VIAF']}" target="_blank" class="entity-link">
+                                                    <xsl:value-of select="tei:idno[@type='VIAF']"/>
+                                                </a>
+                                            </span>
+                                        </xsl:if>
+                                        <xsl:if test="tei:note[@type='phisical_description']">
+                                            <div class="bibl-note">
+                                                <strong>Note: </strong>
+                                                <xsl:value-of select="tei:note[@type='phisical_description']/tei:p"/>
+                                            </div>
+                                        </xsl:if>
+                                    </li>
+                                </xsl:for-each>
+                            </ul>
+                        </div>                     
                     </div>
-                    
-                    <h2>Index of Entities and Authorities</h2>
         
+                    <h2>Index of Entities and Authorities</h2>
+        <!--Generates tables with indexes of names, corresponding to listOrg, listPerson, listPlace, textClass, linking them to the authority files-->
+                    <h3>Organizations Mentioned</h3>
+                    <xsl:for-each select="tei:TEI/tei:teiHeader/tei:profileDesc/tei:particDesc/tei:listOrg/tei:org">
+                        <div class="index-box">
+                            <xsl:choose>
+                                <xsl:when test="@sameAs">
+                                    <a href="{@sameAs}" target="_blank" class="entity-link">
+                                        <strong><xsl:value-of select="tei:orgName"/></strong>
+                                    </a>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <strong><xsl:value-of select="tei:orgName"/></strong>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <p><xsl:apply-templates select="tei:note"/></p>
+                        </div>
+                    </xsl:for-each>
+                    
                     <h3>People Mentioned</h3>
                     <xsl:for-each select="tei:TEI/tei:teiHeader/tei:profileDesc/tei:particDesc/tei:listPerson/tei:person">
                         <div class="index-box">
@@ -120,7 +181,7 @@
                             </span>
                         </xsl:for-each>
                     </div>
-                    
+            <!--Links together both the TEI front matter and the text body to display the narrative content all together and closes the first part-->
                     <h2>Document Text Body</h2>
                     <div class="text-display">
                         <xsl:apply-templates select="tei:TEI/tei:text/tei:front/* | tei:TEI/tei:text/tei:body/*"/>
@@ -128,14 +189,18 @@
                 </div>
             </body>
         </html>
+        
     </xsl:template>
-
+<!--isolate the different frontispieces-->
     <xsl:template match="tei:titlePage">
         <div class="frontispiece-container">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-
+<!--strips out the XML hashtag symbols, 
+    packages the text using standard HTML tags, 
+    and assigns class names so the external CSS file knows  how to style them.-->
+    
     <xsl:template match="tei:docAuthor">
         <div class="author-block {translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
@@ -147,7 +212,7 @@
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-
+    
     <xsl:template match="tei:titlePart">
         <xsl:choose>
             <xsl:when test="@type='main'">
