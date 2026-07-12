@@ -41,7 +41,11 @@ core:die_unendliche_geschichte a bf:Item ;
         bf:variantType "portion" ; 
         bf:mainTitle "Die unendliche Geschichte"@de
     ] ;
-    bf:contributor viaf:2480916 ; 
+    bf:contribution [
+        a bf:Contribution ; 
+        bf:agent viaf:2480916 ; 
+        bf:role "<http://id.loc.gov/vocabulary/relators/ill>" 
+        ] ;        
     rda:P60163_has_place_of_publication gn:2825297 ;
     crm:P56_bears_feature core:blackletter;
     gndo:editor core:thienemann_verlag ; 
@@ -90,8 +94,7 @@ gn:3175395 a schema:Place ;
     rdfs:label "Italy" . 
 
 viaf:2480916 a foaf:Person ; 
-    foaf:name "Roswitha Quadflieg" ; 
-    bf:role <http://id.loc.gov/vocabulary/relators/ill> . 
+    foaf:name "Roswitha Quadflieg" .  
 
 wd:Q1077745 a schema:Person ; 
     rdfs:label "Fictional character" ;
