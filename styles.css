@@ -1,0 +1,279 @@
+/* ==========================================================================
+   1. Import Google Fonts
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Pirata+One&display=swap');
+
+/* ==========================================================================
+   2. Global Structural Rules
+   ========================================================================== */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fcf9f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    border-bottom: 3px double #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+/* Section titles styled red with Cormorant Garamond font */
+h1, h2, h3 {
+    color: #8b1c1c; 
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+}
+h1 { font-size: 3em; margin-bottom: 5px; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-top: 40px; font-size: 2.2em; }
+h3 { margin-top: 25px; font-size: 1.6em; }
+
+.metadata-section, .editions-grid {
+    display: block;
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   3. Metadata and Authority Index Styling
+   ========================================================================== */
+.card {
+    background: transparent;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #1b6645;
+}
+
+.card h4 { 
+    margin: 0 0 5px 0; 
+    color: #1b6645; 
+    font-size: 1.2em;
+}
+
+title, em {
+    font-style: italic;
+}
+
+.entity-link, .project-link {
+    color: #2c3e50;
+    text-decoration: none;
+    border-bottom: 1px dashed #8b1c1c;
+}
+.entity-link:hover, .project-link:hover {
+    color: #8b1c1c;
+    background-color: #fff;
+}
+
+.keyword-link {
+    color: #1b6645;
+    text-decoration: none;
+    font-weight: bold;
+}
+.keyword-link:hover {
+    color: #8b1c1c;
+    text-decoration: underline;
+}
+
+.index-box {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+}
+
+.index-box p {
+    margin: 8px 0 0 0;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.keyword-term-wrapper {
+    background-color: #fff9db;
+    border-bottom: 2px dashed #f59f00;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   4. Document Body Layout & Frontispiece Logic
+   ========================================================================== */
+.text-display {
+    background: #fff;
+    padding: 40px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+}
+
+.paragraph-block { 
+    margin-bottom: 1.5em; 
+    text-align: justify; 
+}
+
+.milestone-pb {
+    display: block;
+    text-align: center;
+    color: #7f8c8d;
+    margin: 25px 0;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    padding: 5px 0;
+}
+
+/* Clean flowing containers without rigid A4 height clamps */
+.frontispiece-container {
+    background-color: #fcf9f2 !important;
+    border: 1px solid #e0dacb;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 50px 40px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.book-page-container {
+    text-align: justify;
+}
+
+/* ==========================================================================
+   5. TEI @rendition Functional Utility Rules
+   ========================================================================== */
+
+/* Ultimate Color Overrides for Subtitles and Main Titles */
+.red, 
+.title-sub.red,
+.title-main.red,
+.frontispiece-container .title-sub.red,
+.frontispiece-container .title-main.red,
+.frontispiece-container .red, 
+.frontispiece-container * .red { 
+    color: #b32424 !important; 
+}
+
+.green, 
+.title-sub.green,
+.title-main.green,
+.frontispiece-container .title-sub.green,
+.frontispiece-container .title-main.green,
+.frontispiece-container .green, 
+.frontispiece-container * .green { 
+    color: #116943 !important; 
+}
+
+.black, 
+.title-sub.black,
+.title-main.black,
+.frontispiece-container .title-sub.black,
+.frontispiece-container .title-main.black,
+.frontispiece-container .black, 
+.frontispiece-container * .black { 
+    color: #1a1a1a !important; 
+}
+
+/* Font mappings linked explicitly to your declaration */
+.f-fraktur {
+    font-family: "Pirata One", system-ui, serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+.f-boeklin {
+    font-family: "Amarante", serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+.f-bodoni {
+    font-family: "Bodoni Moda", serif !important;
+    font-style: normal;
+}
+.f-garamond {
+    font-family: "Cormorant Garamond", serif !important;
+    font-style: normal;
+}
+
+/* Font Size & Alignment helper classes matching your XML IDs */
+.size-max { font-size: xx-large !important; }
+.size-med { font-size: large !important; }
+.size-min { font-size: small !important; }
+.center   { text-align: center !important; }
+
+/* ==========================================================================
+   6. Component Specific Frontispiece Blocks
+   ========================================================================== */
+.frontispiece-container .author-block {
+    margin-bottom: 35px;
+    font-size: 1.6em;
+}
+
+.frontispiece-container .title-block {
+    margin: 25px 0;
+    line-height: 1.2;
+}
+
+.frontispiece-container .title-main {
+    display: block;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.frontispiece-container .title-sub {
+    display: block;
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+.frontispiece-container .resp-block {
+    margin: 20px 0;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.frontispiece-container .imprint-block {
+    margin-top: 50px;
+    font-size: 1.2em;
+    line-height: 1.4;
+}
+
+/* Library Stamp markings styling */
+.stamp-oval {
+    border: 2px solid #3a536b;
+    border-radius: 50% / 40%;
+    padding: 8px 15px;
+    display: inline-block;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    color: #3a536b;
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+}
+.frontispiece-container .byline-block {
+    margin: 15px 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Align the entire page number ornament block */
+.page-number-ornament.center {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+/* Make the number text respect the green tag assignment */
+.green {
+    color: #2e7d32; /* Rich bookish green */
+    font-weight: bold;
+}
+
+.f-garamond {
+    font-family: 'EB Garamond', Georgia, serif;
+}
