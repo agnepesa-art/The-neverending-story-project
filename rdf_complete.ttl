@@ -20,8 +20,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
 @prefix tns: <https://agnepesa-art.github.io/The-neverending-story-project/> . 
 
-core:die_unendliche_geschichte a bf:Text ;
-    owl:sameAs viaf:184013100 ;
+core:die_unendliche_geschichte a bf:Item ;
     bf:shelfMark "SNTED ENDEM UNE" ;
     bf:shelfMarkDdc "833.914 Narrativa tedesca, 1945-1990" ;
     bf:identifiedBy [ 
@@ -41,19 +40,40 @@ core:die_unendliche_geschichte a bf:Text ;
         a bf:VariantTitle ; 
         bf:variantType "portion" ; 
         bf:mainTitle "Die unendliche Geschichte"@de
-    ] , 
-    [
-        a bf:VariantTitle ; 
-        bf:variantType "translation" ; 
-        bf:mainTitle "The Neverending Story"@en 
     ] ;
     bf:contributor viaf:2480916 ; 
-    schema:locationCreated gn:3169070 ;
     rda:P60163_has_place_of_publication gn:2825297 ;
     crm:P56_bears_feature core:blackletter;
     gndo:editor core:thienemann_verlag ; 
-    bf:subject tns:Neverending_story_Concept , wd:Q1077745 ; 
+    bf:subject wd:Q1077745 ; 
+    bf:itemOf tns:first_edition ; 
     schema:genre wd:Q56451354 , wd:Q132311 .
+
+tns:first_edition a bf:Instance ; 
+    bf:instanceOf tns:Neverending_story . 
+
+tns:Neverending_story a bf:Text ; 
+    owl:sameAs viaf:184013100 ;
+    bf:title [
+        a bf:Title ; 
+        bf:mainTitle "Die unendliche Geschichte"@de 
+    ] , 
+    [
+        a bf:VariantTitle ; 
+        bf:variantType "translation" ;
+        bf:mainTitle "The neverending story"@en 
+    ] , 
+    [
+        a bf:VariantTitle ; 
+        bf:variantType "translation" ;
+        bf:mainTitle "La storia infinita"@it
+    ] , 
+    [
+        a bf:VariantTitle ; 
+        bf:variantType "translation" ;
+        bf:mainTitle "La historia interminable"@en 
+    ] ; 
+    schema:locationCreated gn:3169070 . 
 
 gn:2825297 a schema:Place ; 
     rdfs:label "Stuttgart" ; 
@@ -98,7 +118,7 @@ core:michael_ende a foaf:Person ;
     schema:hasOccupation "writer" ; 
     schema:knowsLanguage tns:german ; 
     dbo:livedIn gn:3169070 ; 
-    foaf:made core:die_unendliche_geschichte ;
+    foaf:made tns:Neverending_story ;
     schema:birthPlace gn:2922530 ; 
     foaf:made viaf:201222902 ;  
     foaf:knows viaf:22652921 ; 
@@ -125,7 +145,7 @@ core:thienemann_verlag a gndo:CorporateBody ;
     schema:member viaf:22652921 ; 
     gndo:affiliation core:michael_ende ; 
     gndo:editor viaf:201222902 ; 
-    gndo:editor core:die_unendliche_geschichte ; 
+    gndo:editor tns:first_edition , core:die_unendliche_geschichte  ; 
     gndo:placeOfBusiness gn:2825297 ; 
     schema:legalName "Thienemann-Esslinger Verlag GmbH" ; 
     schema:alternateName "K. Thienemanns Verlag" ; 
@@ -221,12 +241,11 @@ core:the_neverending_story_movie a schema:Movie ;
     schema:genre wd:Q157394 , wd:Q2143665 ; 
     bf:heldBy core:biblioteca_salaborsa ;   
     dcterms:format "DVD" ;
-    schema:isBasedOn core:die_unendliche_geschichte ; 
+    schema:isBasedOn tns:Neverending_story ; 
     bf:identifiedBy [
         a bf:Identifier ; 
         rdf:value "RMS1545844" 
-        ] ; 
-    dcterms:subject tns:Neverending_story_Concept . 
+        ] . 
 
 viaf:148205982 a schema:Organization ; 
     foaf:name "Constantin Film" . 
@@ -278,8 +297,7 @@ core:la_historia_interminable_theater a schema:TheaterEvent ;
     schema:startDate "2026-09-04"^^xsd:date ; 
     schema:endDate "2026-09-20"^^xsd:date ; 
     schema:producer tns:Beon_entertainment ; 
-    schema:isBasedOn core:die_unendliche_geschichte ; 
-    schema:about tns:Neverending_story_Concept . 
+    schema:isBasedOn tns:Neverending_story . 
 
 tns:Federico_Barrios_Fierro a foaf:Person ; 
     foaf:name "Federico Barrios Fierro" ;  
@@ -315,8 +333,7 @@ core:the_neverending_story_videogame a schema:VideoGame ;
     schema:publisher wd:Q1408243 ; 
     schema:gamePlatform wd:Q1406 ; 
     schema:countryOfOrigin gn:2921044 ; 
-    schema:isBasedOn core:die_unendliche_geschichte ;
-    schema:about tns:Neverending_story_Concept . 
+    schema:isBasedOn tns:Neverending_story . 
 
 tns:discreet_monsters a schema:Organization ; 
     foaf:name "Discreet monsters" ;
@@ -324,5 +341,3 @@ tns:discreet_monsters a schema:Organization ;
 
 wd:Q1408243 a schema:Organization ; 
     foaf:name "Octagon Entertainment" . 
-
-tns:Neverending_story_Concept a crm:E28_Conceptual_Object . 
