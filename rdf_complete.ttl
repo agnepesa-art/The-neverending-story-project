@@ -55,7 +55,7 @@ core:die_unendliche_geschichte a bf:Item ;
     bf:contribution [
         a bf:Contribution ; 
         bf:agent core:thienemann_verlag ; 
-        bf:role http://id.loc.gov/vocabulary/relators/edt
+        bf:role <http://id.loc.gov/vocabulary/relators/edt>
         ] ; 
     bf:subject wd:Q1077745 ; 
     bf:itemOf tns:first_edition ; 
