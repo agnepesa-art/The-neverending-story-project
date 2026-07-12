@@ -22,7 +22,6 @@
                         <h1><xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/></h1>
                     </header>
                     
-                    <!-- 1. Document Metadata and Project Description Section -->
                     <h2>Document Metadata and Project Description</h2>
                     <div class="metadata-section">
                         <div class="card">
@@ -33,7 +32,6 @@
                                 <strong>Project Context:</strong> 
                                 <xsl:for-each select="tei:TEI/tei:teiHeader/tei:encodingDesc/tei:projectDesc/tei:p/node()">
                                     <xsl:choose>
-                                        <!-- Check if it is a name tag with a reference link -->
                                         <xsl:when test="self::tei:name[@ref or @sameAs]">
                                             <a href="{normalize-space(concat(@ref, @sameAs))}" target="_blank" class="project-link">
                                                 <xsl:value-of select="."/>
@@ -46,8 +44,6 @@
                                 </xsl:for-each>
                             </p>
                         </div>
-                        
-                        <!-- Taxonomy / Category Descriptions Card -->
                         <xsl:if test="tei:TEI/tei:teiHeader/tei:encodingDesc/tei:classDecl/tei:taxonomy/tei:category">
                             <div class="card">
                                 <h4>Project Taxonomy &amp; Themes</h4>
@@ -69,9 +65,8 @@
                         </div>
                     </div>
                     
-                    <!-- 2. Index of Entities and Authorities Section -->
                     <h2>Index of Entities and Authorities</h2>
-                    
+        
                     <h3>People Mentioned</h3>
                     <xsl:for-each select="tei:TEI/tei:teiHeader/tei:profileDesc/tei:particDesc/tei:listPerson/tei:person">
                         <div class="index-box">
@@ -126,7 +121,6 @@
                         </xsl:for-each>
                     </div>
                     
-                    <!-- 3. Main Document Text Body Section -->
                     <h2>Document Text Body</h2>
                     <div class="text-display">
                         <xsl:apply-templates select="tei:TEI/tei:text/tei:front/* | tei:TEI/tei:text/tei:body/*"/>
@@ -136,32 +130,24 @@
         </html>
     </xsl:template>
 
-    <!-- ===================================================================== -->
-    <!--  INDEPENDENT TEMPLATES MAPPED TO TEI @RENDITION (WITH HASHTAG STRIP) -->
-    <!-- ===================================================================== -->
-    
-    <!-- Template to look for and layout the Title Pages inside the Body text -->
     <xsl:template match="tei:titlePage">
         <div class="frontispiece-container">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
 
-    <!-- Author block handler -->
     <xsl:template match="tei:docAuthor">
         <div class="author-block {translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
 
-    <!-- Document Title block wrapper -->
     <xsl:template match="tei:docTitle">
         <div class="title-block">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
 
-    <!-- Specific internal title segments -->
     <xsl:template match="tei:titlePart">
         <xsl:choose>
             <xsl:when test="@type='main'">
@@ -182,14 +168,12 @@
         </xsl:choose>
     </xsl:template>
 
-    <!-- Responsibility statements like translators/illustrators -->
     <xsl:template match="tei:respStmt">
         <div class="resp-block {translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
 
-    <!-- Publisher/Imprint metadata details at the bottom -->
     <xsl:template match="tei:docImprint">
         <div class="imprint-block {translate(@rendition, '#', '')}">
             <xsl:choose>
@@ -202,8 +186,7 @@
             </xsl:choose>
         </div>
     </xsl:template>
-
-    <!-- Custom handler for publishers containing a logo figure to bypass transcriptions -->
+    
     <xsl:template match="tei:publisher">
         <div class="publisher-wrapper {translate(@rendition, '#', '')}">
             <xsl:choose>
@@ -217,7 +200,6 @@
         </div>
     </xsl:template>
 
-    <!-- If a library stamp has an image, strictly render ONLY the image layout -->
     <xsl:template match="tei:note[@type='stamp'] | tei:ab[@type='stamp']">
         <div class="stamp-oval">
             <xsl:choose>
@@ -231,54 +213,46 @@
         </div>
     </xsl:template>
 
-    <!-- Safe paragraph template: enables text-align: justify and applies rendition properties -->
     <xsl:template match="tei:p">
         <p class="paragraph-block {translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
         </p>
     </xsl:template>
 
-    <!-- Handle inline font/color shifts (<seg rendition="...">) safely -->
     <xsl:template match="tei:seg">
         <span class="{translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
 
-    <!-- This template matches <title> elements that live inside a paragraph (<p>) -->
     <xsl:template match="tei:p/tei:title">
         <div class="body-inline-title {translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
 
-    <!-- Template rule ensuring any standalone <title> tags are always italicized -->
     <xsl:template match="tei:title">
         <i class="{translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
         </i>
     </xsl:template>
 
-    <!-- Handle line breaks cleanly across all frontispieces and text pages -->
     <xsl:template match="tei:lb">
         <br/>
     </xsl:template>
 
-    <!-- Handle byline blocks cleanly and apply their rendition properties -->
     <xsl:template match="tei:byline">
         <div class="byline-block {translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
 
-    <!-- Handle inline highlighted spans (<hi>) inside text/subtitles safely -->
     <xsl:template match="tei:hi">
         <span class="{translate(@rendition, '#', '')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
 
-    <!-- REVERSED ORNAMENTS TEMPLATE: Flower icon is now placed on the outside, leaf frames the inside number -->
     <xsl:template match="tei:fw[@type='pageNum']">
         <div class="page-number-ornament {translate(@rendition, '#', '')}">
             <span class="floral-icon left-side" style="color: #8b263e; margin-right: 8px; font-size: 1.2rem; vertical-align: middle;">✿❧</span>
@@ -289,7 +263,6 @@
         </div>
     </xsl:template>
 
-    <!-- Renders standard document illustrations containing a real graphic URL path -->
     <xsl:template match="tei:figure">
         <xsl:if test="tei:graphic">
             <div class="figure-wrapper {translate(@rendition, '#', '')}">
@@ -298,7 +271,6 @@
         </xsl:if>
     </xsl:template>
 
-    <!-- FIXED: Empty rule prevents the plain text "— Page [n] —" milestone markers from showing up -->
     <xsl:template match="tei:pb"/>
     
 </xsl:stylesheet>
