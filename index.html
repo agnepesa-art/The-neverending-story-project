@@ -2,12 +2,522 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Neverending Story Project</title>
-    <link rel="stylesheet" href="style.css"> <!-- Se avrai un file CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The neverending project</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-page">
+
+    <!-- Fixed Header Navigation Bar -->
     <header>
-        <h1>The Neverending Story Project</h1>
-        <p>Project about The Neverending story</p>
+        <div class="navbar">
+            <div class="logo titolo-gotico">The neverending project</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#domain">Study of the domain</a></li>
+                <li><a href="#organization">Knowledge organization</a></li>
+                <li><a href="#representation">Knowledge representation</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
     </header>
-<a href="edition/index.html" class="btn">View Digital Edition</a>
+
+    <!-- Section 1: Home (Hero Wrapper) -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <!-- Note: Font sizing managed via .hero-content h1 inside style.css -->
+            <h1 class="logo titolo-gotico">The neverending story</h1>
+            <p>A Linked Open Data project on the manifestation of peritext and epitext in <em>The neverending story</em></p>
+            <br>
+            <a href="#domain" class="btn-start">Explore the project</a>
+        </div>
+    </section>
+
+    <!-- Continuous Content Domain Wrapper -->
+    <div class="domain-page-wrapper">
+        <div class="domain-container">
+
+            <!-- Section 2: Study of the Domain -->
+            <section id="domain" class="domain-main-section">
+                <h2 class="domain-main-title">Study of the Domain</h2>
+                
+                <!-- Completely isolated Layout to avoid style.css conflicts -->
+                <div style="display: block; width: 100%; margin-bottom: 60px; clear: both;">
+                    
+                    <!-- Left Column: The Essay content -->
+                    <div style="width: 63%; float: left; margin-right: 4%;">
+                        <h3 class="domain-subtitle">Idea</h3>
+                        <p>This project explores the paratext of the book <em>The neverending story</em> written by Michael Ende and first published in 1979. The project was inspired by my thesis research, in which I analyze different editions of the novel in order to see how the changes in its material form influence the reading experience.</p>
+                        <p>The <strong>theoretical framework</strong> of this research is the concept of <strong>paratext</strong>, as it is explained by Gerard Genette in his book <em>Seuils</em> (1987). Paratext refers to the material that surrounds a published text and is commonly divided between peritext and epitext. The <strong>peritext</strong> consists of the elements inside the volume (such as title, preface, page numbers), the <strong>epitext</strong> comprises elements outside the volume (such as interviews, posters, letters, ecc…).</p>
+                        <p>In recent years there have been many studies that focused on the relationship between the paratext and the new technologies that changed our reading habits. Of note is how online metadata mirrors traditional paratextual functions when marketing or representing a book online. The paratextual instance in which this is more evident is the <strong>frontispiece</strong>; the information here collected – traditionally classified as peritext – when integrated into a <strong>Linked Open Data</strong> system, shifts the boundaries of the epitext. Following these digital link paths allow readers to know a great deal of the book before even reading it, which inevitably impacts our reception of the text itself.</p>
+                        <p><em>The neverending story</em> was chosen as the subject of this project because of its relevance in both knowledge organization and knowledge representation. As previously mentioned, the transformation of the data inside the frontispiece into Linked Open Data offered the opportunity to explore the new boundaries between peritext and epitext. Furthermore, it is a peculiar case of an adaptation that has become much more famous than the original novel, starting the production of new epitextual entities that reference the film rather than the book itself. Regarding knowledge representation, the changes in the unique physical and typographical materiality offered the perfect example of the importance of how a digital edition is rendered, demanding a precise digitization of the resource.</p>
+                        <p class="disclaimer-note"><strong>A final note</strong>: in alignment with the executors of Michael Ende’s estate, I explicitly distance myself and this project from any recent political misappropriation of the book and its characters.</p>
+                    </div>
+                    
+                    <!-- Right Column: Summary Box + Fitted Image right underneath -->
+                    <div style="width: 33%; float: right; display: flex; flex-direction: column; gap: 20px;">
+                        <!-- Summary Area Side Box -->
+                        <div style="background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.06);">
+                            <h3 style="margin-top:0;">Summary of the novel</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.5; text-align: justify;"><em>The Neverending Story</em> follows <strong>Bastian Balthasar Bux</strong>, an outcast boy who steals a magical book called <em>The Neverending Story</em>. Hiding in his school’s attic, he starts reading the novel that talks about a magical realm called Fantàsia which is being consumed by an entity called "The Nothing". During his reading though strange things happen, he starts to hear his own “real” voice called inside the story. This overlap between Bastian’s reality and the fictional world of Fantasia is represented through the use of different typographic colours in the original edition. In the second half of the book, Bastian is called inside the world of Fantàsia through the use of a magic book, called <em>The neverending story</em>. This plot, already metadiegetic, generates a metadiegetic loop for the fact that the characteristics of the two volumes described inside the story match, in the first edition, the physical and typographical characteristics of the real book held by the extradiegetic reader.</p>
+                        </div>
+
+                        <!-- The Image perfectly sized to match the summary container width -->
+                        <div style="width: 100%; text-align: center;">
+                            <img src="images/ger_ed_1979.jpeg" alt="German First Edition 1979 Cover/Frontispiece" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.06);">
+                        </div>
+                    </div>
+
+                    <!-- Clear floats layout fix -->
+                    <div style="clear: both;"></div>
+                </div>
+
+                <!-- Entities Sub-Section -->
+                <div class="entities-section">
+                    <h3 class="domain-subtitle">Entities</h3>
+                    <p class="entities-intro">The entities chosen for this project can be organized into two main groups, classified with the terms of peritext and epitext. The first five entities are taken directly from the frontispiece of the physical first german edition held inside the Biblioteca Salaborsa in Bologna (see image above). The other entities, representing the epitext, are adaptations or linked to adaptation of the book. This selection demonstrates how, within the Semantic Web, peritextual and epitextual entities spanning across different media can be seamlessly interconnected and linked to global data networks.</p>
+                    
+                    <div class="entities-grid">
+                        
+                        <!-- Entity 1 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_1.jpeg" alt="Die unendliche geschichte">
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">Die unendliche Geschichte</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">The first german edition of <em>The neverending story</em>, held at the Salaborsa library.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Book</span>
+                                    <a href="https://sol.unibo.it/SebinaOpac/resource/die-unendliche-geschichte/UBO01054720?tabDoc=tabloca" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 2 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_2.jpeg" alt="Michael Ende">
+                                <div class="img-copyright-overlay">© dpa - Fotoreport</div>
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">Michael Ende</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">German author (1929-1995) known for his children’s novels, including <em>Jim button and Luke the Engine Driver</em>, <em>Momo</em> and <em>The neverending story</em>.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Person</span>
+                                    <a href="http://viaf.org/viaf/34456245" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 3 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_3.png" alt="K. Thienemanns Verlag">
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">K. Thienemanns Verlag</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">German publishing house founded in 1849. It published <em>The neverending story</em> and other major works by Michael Ende.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Corporate Body</span>
+                                    <a href="https://d-nb.info/gnd/10102676-6" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 4 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_4.png" alt="Blackletter">
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">Blackletter</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">Typographic script created in the 12th century and one of the first to be used in the printing era. Used in the first german edition of the novel.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Typeface</span>
+                                    <a href="http://vocab.getty.edu/page/aat/300200661" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 5 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_5.jpg" alt="Biblioteca Salaborsa">
+                                <div class="img-copyright-overlay">Copyright Bologna Welcome</div>
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">Biblioteca Salaborsa</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">A public library in Bologna, Italy, founded in 2001 which holds the 1979 edition of the novel.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Organization</span>
+                                    <a href="https://www.bibliotecasalaborsa.it/" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 6 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_6.png" alt="The neverending story film">
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">The neverending story</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">The iconic 1984 fantasy movie. While it achieved commercial success, Michael Ende famously disowned the production due to creative differences.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Media</span>
+                                    <a href="https://sol.unibo.it/SebinaOpac/resource/la-storia-infinita/UBO03402434?tabDoc=tabloca" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 7 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_7.webp" alt="La storia infinita poster">
+                                <div class="img-copyright-overlay">Copyright the movie db</div>
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">La storia infinita</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">The official promotional poster for the italian release of the film.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Artwork</span>
+                                    <a href="https://www.themoviedb.org/collection/91430-die-unendliche-geschichte-filmreihe/images/posters?language=it-IT" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 8 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_8.jpg" alt="Soundtrack Track">
+                                <div class="img-copyright-overlay">Fair use</div>
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">The neverending story</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">The main song of the film’s original soundtrack, achieved independent global success.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Track</span>
+                                    <a href="https://www.wikidata.org/wiki/Q2413048" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 9 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_9.jpg" alt="Auryn Quest Game">
+                                <div class="img-copyright-overlay">Wikipedia</div>
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">The neverending story part 1 - Auryn quest</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">A PC videogame released in 2002 and based on the book. The second part was never developed.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Media</span>
+                                    <a href="https://rawg.io/games/the-neverending-story-part-i-auryn-quest" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entity 10 -->
+                        <div class="entity-card">
+                            <div class="entity-image-box">
+                                <img src="images/item_10.jpg" alt="La historia interminable Event">
+                                <div class="img-copyright-overlay">Copyright Teatro Calderon</div>
+                            </div>
+                            <div class="entity-info">
+                                <h4 class="entity-title">La historia interminable</h4>
+                                <p style="margin-bottom: 20px; font-size: 0.95rem;">A musical theater performance scheduled for September 2026 at the Teatro Calderòn in Valladolid, Spain.</p>
+                                <div class="entity-footer-meta">
+                                    <span class="manifestation-tag">Event</span>
+                                    <a href="https://tcalderon.com/evento/la-historia-interminable/" target="_blank" class="btn-see-more">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 3: Knowledge Organization -->
+            <section id="organization" class="domain-main-section">
+                <h2 class="domain-main-title">Knowledge Organization</h2>
+                
+                <h3 class="domain-subtitle">Metadata analysis</h3>
+                <p class="essay-content">The first activity carried out was investigating the <strong>metadata standards</strong> used by the sources of my chosen entities. I quickly realized that, since most of the chosen entities are not physical manifestations, except for the book and the movie DVD, I did not have the metadata standards from traditional providers organizations. Instead, I had to rely on the metadata standards of the sources for the authority files. However, in most cases, I subsequently supplemented this metadata information by applying the standards that seemed more suitable to the nature of the entity.</p>
+                
+                <!-- Pure HTML Clean Metadata Grid Table -->
+                <div class="table-container" style="overflow-x: auto; margin: 25px 0;">
+                    <table class="metadata-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Type</th>
+                                <th>Manifestation</th>
+                                <th>Source / Provider</th>
+                                <th>Metadata Standard (Source)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Die unendliche Geschichte</strong></td>
+                                <td>Book</td>
+                                <td>Print</td>
+                                <td>Biblioteca Salaborsa - Bologna</td>
+                                <td><span class="badge-std">ISBD/MARC21/UniMarc</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Michael Ende</strong></td>
+                                <td>Person</td>
+                                <td>-</td>
+                                <td>Virtual International Authority File (VIAF)</td>
+                                <td><span class="badge-std">MARC21 Authority / VIAF</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Thienemann Verlag</strong></td>
+                                <td>CorporateBody</td>
+                                <td>-</td>
+                                <td>Deutsche Nationalbibliothek (DNB)</td>
+                                <td><span class="badge-std">GND</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Blackletter</strong></td>
+                                <td>Conceptual Object</td>
+                                <td>Typeface</td>
+                                <td>Getty Research Institute (AAT)</td>
+                                <td><span class="badge-std">Getty AAT / SKOS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Biblioteca Salaborsa</strong></td>
+                                <td>Organization</td>
+                                <td>-</td>
+                                <td>Anagrafe delle Biblioteche Italiane (ICCU)</td>
+                                <td><span class="badge-std">EAC-CPF</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>The Neverending Story (movie)</strong></td>
+                                <td>Media</td>
+                                <td>Movie</td>
+                                <td>Biblioteca Salaborsa - Bologna</td>
+                                <td><span class="badge-std">ISBD/MARC21/UniMarc</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>La storia infinita (poster)</strong></td>
+                                <td>Artwork</td>
+                                <td>Poster</td>
+                                <td>The Movie Database (TMDb)</td>
+                                <td><span class="badge-std">schema.org</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>The Neverending Story (song)</strong></td>
+                                <td>Track</td>
+                                <td>Digital</td>
+                                <td>Wikidata</td>
+                                <td><span class="badge-std">Wikidata Ontology / Custom Metadata</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>La historia interminable (theater Event)</strong></td>
+                                <td>Event</td>
+                                <td>Performance</td>
+                                <td>Teatro Calderòn - Valladolid</td>
+                                <td><span class="badge-std">schema.org / Custom Event</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>The Neverending Story Part I (videogame)</strong></td>
+                                <td>Media</td>
+                                <td>Videogame</td>
+                                <td>RAWG Video Games Databases</td>
+                                <td><span class="badge-std">schema.org /Custom Metadata</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="domain-subtitle">Theoretical model</h3>
+                <p class="essay-content">I constructed the theoretical model around the concept of the <em>Neverending Story</em>. The <strong>narrative work</strong> itself serves as the central entity, rather than the physical manifestation of the book held in Biblioteca Salaborsa. To facilitate a smooth transposition into the conceptual model, I created the model already using <strong>triple statements in natural language</strong>, following the subject-predicate-object statements.</p>
+                <p class="essay-content">I enriched the map with specific information that could either define the nature of each entity or establish <strong>relationships</strong> between them. For instance, I chose to make explicit a wide range of geographical links because it is vital to studying Michael Ende’s work in a comparative perspective.</p>
+                <p class="essay-content">In the graph I chose to visually distinguish my core 10 entities, main entities linked to them, external link to the main authorities' sources and the literal statements.</p>
+
+                <div class="model-visualization-container">
+                    <div class="legend-box">
+                        <img src="images/legend.png" alt="Legend Map" class="legend-img">
+                    </div>
+                    <div class="big-graph-box">
+                        <h4>Theoretical Model Graph</h4>
+                        <p class="zoom-instruction">Hover over the image to inspect the complete map structure</p>
+                        <div class="zoom-wrapper">
+                            <img src="models/Theoretical_model.jpg" alt="Theoretical Model Diagram" class="zoomable-img">
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="domain-subtitle" style="margin-top: 40px;">Conceptual model</h3>
+                <p class="essay-content">The conceptual model serves as an <strong>abstraction</strong> of the theoretical model, enabling the information to subsequently become part of the Semantic Web.</p>
+                
+                <p class="essay-content" style="text-align: center;">
+                    <span class="uri-highlight-box">
+                        Project base namespace namespace URI: <a href="https://agnepesa-art.github.io/The-neverending-story-project/" target="_blank">https://agnepesa-art.github.io/The-neverending-story-project/</a>
+                    </span>
+                </p>
+
+                <p class="essay-content">While I tried to prioritize domain-specific schemas aligned with the entity's metadata standards, in most cases these schemas were insufficient on their own and needed to be enriched with alternative vocabularies chosen for their relevance in that specific resource description. For instance, while BIBFRAME, the Music Ontology, and the GND Ontology were almost sufficient to describe the book, the theme song, and the publisher, the remaining entities required a combination of Schema.org and Dublin Core (DC), alongside the FOAF ontology to model authorship data.</p>
+                
+                <div class="methodological-note">
+                    <strong>Methodological note on Blackletter</strong>: I chose to insert the typeface as a distinct entity, a conceptual object, given its importance in the characterization of the resource. One interesting point for a possible comment on the use of that typeface is the fact that, in Germany, it was banned by Adolf Hitler in 1941 for a new, more linear, typographic form. It is my personal opinion that the choice taken by Michael Ende and his editor may be if not directly at least indirectly influenced by this historic context. That is because inside the book there is a constant struggle against the “uniformity” of the real world, a world without imagination, where we are all the same. This is the reason why it was so important to insert this contextual fact into the model and, since I wasn’t able to find the right existing ontology to describe it, I created my personal example properties <code>tns:bannedBy</code> and <code>tns:bannedIn</code>.
+                </div>
+
+                <div class="big-graph-box">
+                    <h4>Conceptual Model Graph</h4>
+                    <p class="zoom-instruction">Hover over the image to inspect the mapping links</p>
+                    <div class="zoom-wrapper">
+                        <img src="models/Conceptual_model.png" alt="Conceptual Model Diagram" class="zoomable-img">
+                    </div>
+                </div>
+
+                <!-- Prefixes Namespace Centered Box Area -->
+                <div style="margin: 40px auto; text-align: center; max-width: 700px;">
+                    <h4 style="margin-bottom:15px;">Namespaces used in the Conceptual Model:</h4>
+                    <textarea readonly style="width: 100%; height: 220px; font-family: monospace; padding: 15px; border-radius: 6px; border: 1px solid #ccc; background: #fff; resize: vertical; text-align: left;">
+@prefix aat: <http://vocab.getty.edu/aat/> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix core: <https://agnepesa-art.github.io/The-neverending-story-project/core-entities/> . 
+@prefix crm: <https://cidoc-crm.org/html/cidoc_crm/> .
+@prefix dbo: <https://dbpedia.org/ontology/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> . 
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gn: <http://www.geonames.org/> .
+@prefix gnd: <https://www.dnb.de/EN/gnd> .
+@prefix gndo: <https://d-nb.info/standards/elementset/gnd#> . 
+@prefix mo: <http://purl.org/ontology/mo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rda: <http://rdaregistry.info/Elements/a/> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix schema: <https://schema.org/> . 
+@prefix viaf: <https://viaf.org/viaf/> . 
+@prefix wd: <https://www.wikidata.org/wiki/> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix tns: <https://agnepesa-art.github.io/The-neverending-story-project/> .</textarea>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 4: Knowledge Representation -->
+            <section id="representation" class="domain-main-section">
+                <h2 class="domain-main-title">Knowledge Representation</h2>
+                
+                <h3 class="domain-subtitle">RDF production</h3>
+                <p class="essay-content">Starting from the conceptual model map, I created an RDF dataset serialized in Turtle format. Instead of using Python, I wrote every <strong>triple by hand</strong>, which allowed for meticulous attention to detail. The vocabularies were derived directly from the conceptual model; as was done in that map, I used costume URIs for the core entities and some concepts more relevant to the project. Specifically, I used ontologies such as Dublin Core (dcterms), BIBFRAME, Schema.org, and CIDOC-CRM (crm) for the predicates, while for entity disambiguation I linked the URIs to authority resources such as VIAF (for people), Wikidata, and Geonames (for places). To validate the file I used the <a href="https://www.w3.org/RDF/Validator/" target="_blank">W3C validation service</a>.</p>
+
+                <div class="code-repository-box">
+                    <div class="repo-header">
+                        <span class="file-badge ttl-badge">Turtle</span>
+                        <span class="file-name">rdf_completed.ttl</span>
+                    </div>
+                    <div class="repo-body" style="padding:0;">
+                        <textarea data-file="rdf_complete.ttl" class="code-box" readonly>Loading code content...</textarea>
+                    </div>
+                </div>
+
+                <h3 class="domain-subtitle">Text analysis</h3>
+                <p class="essay-content">I chose to start encoding from the frontispiece page from which the entire project had started. This provided an excellent opportunity to learn how to create a digital edition of a physical book page and to digitally describe various textual phenomena. As part of my ongoing thesis project, I expanded this work to encode two more frontispieces: one from the first Italian edition published by Longanesi, and another from the economic one published by Salani. Furthermore, I chose to encode an internal page inside the Longanesi edition. This specific page is important for two main reasons. First, it features the color variations that happen throughout the novel to create a distinction between the “real world” and the world of Fantàsia. Second, it represents one of the two moments of the book in which the metanarrative aspect comes more to life: there is an internal description of the book that corresponds precisely to the book in the hands of the extradiegetic reader.</p>
+
+                <h3 class="domain-subtitle">TEI/XML document</h3>
+                <p class="essay-content">The first step was to encode these pages within a single <strong>TEI/XML document</strong>, enriched with external authority links that follow the same standards established before. Specifically, I used VIAF to reference people, Geonames for places, both Wikidata and the Getty vocabulary to reference the typographic concepts. These had to be precise given the metadiegetic significance of the book’s physical description within the narrative itself. The document was subsequently validated using the <a href="https://teibyexample.org/exist/tools/TBEvalidator.htm" target="_blank">TEI by Example Validator</a>.</p>
+
+                <!-- Textarea Code Box for The_neverending_story.xml -->
+                <div class="code-repository-box">
+                    <div class="repo-header">
+                        <span class="file-badge xml-badge">XML</span>
+                        <span class="file-name">The_neverending_story.xml</span>
+                    </div>
+                    <div class="repo-body" style="padding:0;">
+                        <textarea data-file="edition/The_neverending_story.xml" class="code-box" readonly>Loading XML code...</textarea>
+                    </div>
+                </div>
+
+                <h3 class="domain-subtitle">From XML to HTML</h3>
+                <p class="essay-content">In order to transform my TEI document into a browsable HTML file, I produced a XSLT stylesheet. This file defines the rules for identifying XML nodes in the source document, specifying how to manipulate them, and rendering them into the new HTML file. Starting from the root element, I have matched all the elements inside the TEI to map them to the HTML structure. The content on the HTML page is organized into clearly differentiated paragraphs and indexes, featuring direct links to the Authority File. In order to keep the file more clean and because of the importance of the physical rendition of the page, the XSLT file contains only the structural and semantic transformation; while all the visual aspects have been delegated to a CSS file. Both of these files were developed with the assistance of Google Gemini, as was suggested by the professor.</p>
+                <p class="essay-content"><em>Note on the typefaces</em>: in order to represent the frontispieces in the most similar way possible to the original pages, I imported in the CSS file the fonts directly from Google fonts. However, since the <em>Arnold Boeklin</em> typeface used in the italian edition was not available, I opted for <em>Amarante</em>, as its aesthetic closely mirrors the original Art Nouveau style. Once I was satisfied with the XSLT file, I processed it alongside the original XML file using Freeformatter to generate the final, browsable HTML page, <a href="edition/index.html" class="btn">View Digital Edition</a>.</p>
+
+                <!-- Textarea Code Box for Stylesheet.xsl -->
+                <div class="code-repository-box">
+                    <div class="repo-header">
+                        <span class="file-badge xml-badge" style="background-color: #5c3fa1;">XSLT</span>
+                        <span class="file-name">Stylesheet.xsl</span>
+                    </div>
+                    <div class="repo-body" style="padding:0;">
+                        <textarea data-file="edition/Stylesheet.xsl" class="code-box" readonly>Loading XSLT markup...</textarea>
+                    </div>
+                </div>
+
+                <h3 class="domain-subtitle">From XML to RDF</h3>
+                <p class="essay-content">The goal of the transformation of the TEI/XML file into an RDF file was to convert the data from its original hierarchical structure to a graph-based structure, which is characteristic of Linked Data. As I did for the RDF dataset, even this transformation was done writing the <strong>turtle statement by hand</strong>. Every relevant piece of information was mapped and linked with properties from standard vocabularies like <code>dcterms:creator</code> or <code>foaf:name</code>. It was necessary to create and assign new unique URIs for identification different from the one used in the RDF file. Following this, the syntax of the files was checked for correctness using the <a href="https://www.w3.org/RDF/Validator/" target="_blank">W3C validation service</a>.</p>
+                <!-- Textarea Code Box for Rdf_text_analysis.ttl -->
+                <div class="code-repository-box">
+                    <div class="repo-header">
+                        <span class="file-badge ttl-badge">Turtle RDF</span>
+                        <span class="file-name">Rdf_text_analysis.ttl</span>
+                    </div>
+                    <div class="repo-body" style="padding:0;">
+                        <textarea data-file="edition/Rdf_text_analysis.ttl" class="code-box" readonly>Loading RDF text analysis...</textarea>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 5: About -->
+            <section id="about" class="domain-main-section" style="padding-bottom: 40px;">
+                <h2 class="domain-main-title">About the Project</h2>
+                <p class="essay-content" style="text-align: center; font-size: 1.2rem;">This project was realized by <strong>Agnese Pesaresi</strong>, student of the master’s degree of <em>Italianistica e culture letterarie europee</em>, for the final examination of the course Information science and cultural heritage, a.a. 2025/2026.</p>
+                <div style="text-align: center; margin-top: 25px;">
+                    <a href="https://github.com/agnepesa-art" target="_blank" class="btn-start" style="margin-right: 15px;">Developer Profile</a>
+                    <a href="https://github.com/agnepesa-art/The-neverending-story-project" target="_blank" class="btn-start" style="background-color: var(--verde-fantasia);">Project Repository</a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sticky Bottom Footer Section -->
+    <footer>
+        <p>2026 - The Neverending Story Project | Final Examination project for the course Information Science and Cultural Heritage</p>
+        <p class="credits-text">The images related to 'The NeverEnding Story' are used exclusively for educational and scientific research purposes (Art. 70 Law 633/1941). The rights to the cataloged entities belong to their respective owners mentioned within the records.</p>
+        <p class="credits-text">Web fonts provided by Google Fonts. Promotional and background graphics optimized via artificial intelligence.</p>
+    </footer>
+
+    <!-- Automated Background Text Resource Loader Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Find every textarea on the page equipped with a data-file target parameter
+        document.querySelectorAll('textarea[data-file]').forEach(textareaBox => {
+            const pathToFile = textareaBox.getAttribute('data-file');
+            
+            // Asynchronously pull the text from the document directory folder
+            fetch(pathToFile)
+                .then(serverResponse => {
+                    if (!serverResponse.ok) {
+                        throw new Error(`HTTP network error reading path location: ${pathToFile}`);
+                    }
+                    return serverResponse.text();
+                })
+                .then(rawContentBody => {
+                    // Inject raw source string elements directly inside the visual text node
+                    textareaBox.value = rawContentBody;
+                })
+                .catch(fetchError => {
+                    console.error("Trouble fetching project files content:", fetchError);
+                    textareaBox.value = `[Status Error: Unable to automatically render ${pathToFile}.\nPlease verify that the file exists in the correct folder path and that you are previewing via a server environment rather than direct local file protocol browsing.]`;
+                });
+        });
+    });
+    </script>
+
+</body>
+</html>
