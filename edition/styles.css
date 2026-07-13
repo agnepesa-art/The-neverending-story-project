@@ -149,7 +149,6 @@ title, em {
    5. TEI @rendition Functional Utility Rules
    ========================================================================== */
 
-/* Ultimate Color Overrides for Subtitles and Main Titles */
 .red, 
 .title-sub.red,
 .title-main.red,
@@ -180,7 +179,7 @@ title, em {
     color: #1a1a1a !important; 
 }
 
-/* Font mappings linked explicitly to your declaration */
+/* Font mappings linked explicitly to declaration */
 .f-fraktur {
     font-family: "Pirata One", system-ui, serif !important;
     font-weight: 400;
@@ -268,9 +267,8 @@ title, em {
     font-size: 1.1rem;
 }
 
-/* Make the number text respect the green tag assignment */
 .green {
-    color: #2e7d32; /* Rich bookish green */
+    color: #2e7d32;
     font-weight: bold;
 }
 
