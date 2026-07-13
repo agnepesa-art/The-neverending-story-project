@@ -182,8 +182,8 @@ title, em {
 /* Font mappings linked explicitly to declaration */
 .f-fraktur {
     font-family: "Pirata One", system-ui, serif !important;
-    font-weight: 400;
-    font-style: normal;
+    font-weight: 400 !important ; 
+    font-style: normal !important ; 
 }
 .f-boeklin {
     font-family: "Amarante", serif !important;
