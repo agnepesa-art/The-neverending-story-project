@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Pirata+One&display=swap');
+
+
+html {scroll-behavior: smooth;
+    }
+
+:root {
+    --colore-pagina-libro: #fcf9f2;  
+    --rosso-storia: #b82626;         
+    --verde-fantasia: #1b6645;       
+    --testo-scuro: #111a24;          
+    --font-titoli: 'Playfair Display', 'Georgia', serif;
+    --font-gotico: 'UnifrakturMaguntia', serif;
+    --font-corpo: 'Segoe UI', Tahoma, sans-serif;
+    --font-navbar: 'Cormorant Garamond', serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-corpo);
+    color: var(--testo-scuro);
+    line-height: 1.6;
+}
+
+/* HOME  */
+.home-page {
+    background-image: url('images/sfondo.png'); 
+    background-position: center top;     
+    background-repeat: no-repeat;        
+    background-attachment: fixed;        
+    background-size: cover;
+}
+
+/* DOMAIN */
+.domain-page-wrapper {
+    background-color: var(--colore-pagina-libro);
+    width: 100%;
+    position: relative;
+    z-index: 10; /* Copre lo sfondo fisso del body */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+/* ==========================================
+   TITLES
+   ========================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-titoli);
+    color: var(--rosso-storia) !important;
+    font-weight: bold !important;
+    margin-bottom: 20px;
+}
+
+.titolo-gotico {
+    font-family: var(--font-gotico) !important;
+    color: var(--verde-fantasia) !important;
+    font-weight: normal !important; 
+}
+
+/* ===================
+   NAV BAR
+   ====================*/
+header {
+    background-color: var(--colore-pagina-libro); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+}
+
+
+.logo.titolo-gotico {
+    font-size: 1.8rem;
+    letter-spacing: 0px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--testo-scuro);
+    text-decoration: none;
+    font-size: 1.00rem; /* Slightly increased for better Garamond readability */
+    font-family: var(--font-navbar); /* Applied Cormorant Garamond */
+    font-weight: 600; 
+    letter-spacing: 0.3px; /* Adds a touch of professional breathing room */
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover, 
+.nav-links a:active,
+.nav-links a.active {
+    color: var(--rosso-storia) !important;
+}
+
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; 
+    padding: 0 20px;
+}
+
+.hero-content {
+    background-color: rgba(252, 249, 242, 0.9); 
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.hero-section .hero-content h1 {
+    font-size: 4rem; 
+    margin-bottom: 20px;
+}
+
+.btn-start {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--rosso-storia);
+    color: var(--colore-pagina-libro);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-start:hover {
+    background-color: var(--verde-fantasia);
+}
+
+
+.domain-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 20px 80px 20px; 
+}
+
+.domain-main-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.domain-subtitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--rosso-storia);
+    padding-bottom: 5px;
+}
+
+.essay-content p, .entities-intro {
+    color: #000000; 
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+.disclaimer-note {
+    font-style: italic;
+    border-left: 3px solid var(--rosso-storia);
+    padding-left: 15px;
+    margin-top: 25px;
+}
+
+/* GRIGLIA ENTITÀ */
+.entities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.entity-card {
+    background-color: #ffffff; 
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s;
+}
+
+.entity-card:hover {
+    transform: translateY(-3px);
+}
+
+.entity-image-box {
+    width: 100%;
+    height: 240px;
+    position: relative;
+}
+
+.entity-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-copyright-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+}
+
+.entity-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.entity-title {
+    font-size: 1.4rem;
+    color: var(--rosso-storia) !important;
+    font-weight: bold !important;
+    margin-bottom: 12px;
+}
+
+.entity-footer-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.manifestation-tag {
+    background-color: #eef3f0;
+    color: var(--verde-fantasia);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn-see-more {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: var(--rosso-storia);
+    color: var(--colore-pagina-libro) !important;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--colore-pagina-libro);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    color: #555555;
+    text-align: center;
+    padding: 35px 15px;
+    width: 100%;
+    position: relative;
+    z-index: 20;
+}
+
+.credits-text {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+    .entities-grid { grid-template-columns: 1fr; }
+}
+/* ==========================================
+   6. KNOWLEDGE ORGANIZATION
+   ========================================== */
+
+
+.csv-placeholder-box {
+    background-color: #ffffff;
+    border: 1px dashed var(--rosso-storia);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.csv-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.uri-highlight-box {
+    background-color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-family: monospace;
+    border: 1px solid rgba(0,0,0,0.08);
+    display: inline-block;
+}
+
+.uri-highlight-box a {
+    color: var(--verde-fantasia);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.methodological-note {
+    background-color: #f5ebe0;
+    border-left: 4px solid var(--verde-fantasia);
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 1.05rem;
+    font-style: italic;
+}
+
+.model-visualization-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.legend-box {
+    max-width: 400px;
+    width: 100%;
+}
+
+.legend-img {
+    width: 100%;
+    height: auto;
+}
+
+.big-graph-box {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    text-align: center;
+}
+
+.zoom-instruction {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.zoom-wrapper {
+    overflow: auto; 
+    width: 100%;
+    border-radius: 4px;
+}
+
+.zoomable-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease; 
+    cursor: zoom-in;
+}
+
+.zoomable-img:hover {
+    transform: scale(1.5);
+}
+/* ==========================================
+   7. KNOWLEDGE REPRESENTATION
+   ========================================== */
+
+/* Elegant divider between Semantic Web and Text Encoding sections */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(184, 38, 38, 0), rgba(184, 38, 38, 0.4), rgba(184, 38, 38, 0));
+    margin: 50px 0;
+}
+
+/* Code block repositories styling */
+.code-repository-box {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    margin: 25px 0;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.repo-header {
+    background-color: #f5ebe0;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.file-badge {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Specific colors for document types */
+.ttl-badge {
+    background-color: #ef8354; /* Warm Turtle Orange */
+}
+
+.xml-badge {
+    background-color: #3a86c8; /* Semantic XML Blue */
+}
+
+.file-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    color: var(--testo-scuro);
+    font-weight: bold;
+}
+
+.repo-body {
+    padding: 20px;
+    background-color: #faf6f0;
+}
+
+.placeholder-text {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+    color: #777777;
+    font-family: monospace;
+}
+/* --- Table Container and Core Grid Lines --- */
+.table-container {
+    margin: 30px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #dcd6cd; /* Soft outline matching your book aesthetic */
+}
+
+.metadata-table {
+    width: 100%;
+    border-collapse: collapse; /* Merges borders into clean, single lines */
+    font-size: 0.95rem;
+    background-color: transparent; /* Allows your ivory page background to show through */
+}
+
+/* --- Table Headers --- */
+.metadata-table th {
+    background-color: var(--rosso-storia); /* Deep story red */
+    color: var(--colore-pagina-libro);     /* Ivory text font color */
+    font-family: var(--font-titoli);
+    font-weight: 600;
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 2px solid #941e1e;
+    border-right: 1px solid rgba(255, 255, 255, 0.15); /* Clean line breaks between header titles */
+}
+
+/* --- Table Data Cells & Thin Borders --- */
+.metadata-table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid #dcd6cd; /* Crisp horizontal grid line */
+    border-right: 1px solid #dcd6cd;  /* Crisp vertical column grid line */
+    color: var(--testo-scuro);
+}
+
+/* Clear outer edge lines on the final column */
+.metadata-table th:last-child,
+.metadata-table td:last-child {
+    border-right: none;
+}
+
+/* --- Clean Text Badges (No Colored Backgrounds) --- */
+.badge-std {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--testo-scuro);
+    /* No background colors or highlights applied here */
+}
+
+/* --- Interactive Row Hover Highlight --- */
+/* Keeps a gentle, temporary highlight when your cursor tracks across the data rows */
+.metadata-table tbody tr:hover {
+    background-color: rgba(184, 38, 38, 0.04) !important; /* Extremely soft red tint on hover */
+    transition: background-color 0.15s ease-in-out;
+}
+
+.code-box {
+    width: 100%;
+    height: 250px;
+    border: 1px solid #dcd6cd;
+    background-color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    padding: 12px;
+    box-sizing: border-box;
+    resize: vertical;
+    white-space: pre; /* Keeps your custom text indents and line breaks perfectly intact! */
+}
+
+p, .essay-content, .essay-sidebar p {
+    text-align: justify;
+}
