@@ -234,11 +234,11 @@ tnse:metanarration a skos:Concept ;
     dcterms:description "theme of the metanarration, the book that the extradiegetic reader is reading is the same book that Bastiano is reading and the same in the story inside the fictional book" . 
 
 tnse:frontispiece_1 a schema:CreativeWork ; 
-    dcterms:hasPart tnse:docAuthor/michael-ende ,
-                    tnse:docTitle/die-unendliche-geschichte , 
-                    tnse:byline/roswitha-quadflieg ,
-                    tnse:figure/salaborsa-timbro ,
-                    tnse:docImprint/thienemanns ;
+    dcterms:hasPart tnse:docAuthor\/michael-ende ,
+                    tnse:docTitle\/die-unendliche-geschichte , 
+                    tnse:byline\/roswitha-quadflieg ,
+                    tnse:figure\/salaborsa-timbro ,
+                    tnse:docImprint\/thienemanns ;
     schema:text """ Michael Ende 
                     Die unendliche Geschichte 
                     von A biz Z 
@@ -249,16 +249,16 @@ tnse:frontispiece_1 a schema:CreativeWork ;
                     K. Thienemanns Verlag"""@de ; 
     skos:note "type=title_page" . 
 
-tnse:figure/salaborsa-timbro a schema:ImageObject ; 
+tnse:figure\/salaborsa-timbro a schema:ImageObject ; 
     schema:name "salaborsa timbro" ; 
     schema:contentURL "https://github.com/agnepesa-art/The-neverending-story-project/blob/main/edition/salaborsa_timbro.jpg" . 
 
 tnse:frontispiece_2 a schema:CreativeWork ; 
-    dcterms:hasPart tnse:docAuthor/michael-ende ,
-                    tnse:docTitle/la-storia-infinita , 
-                    tnse:byline/antonio-basoli ,
-                    tnse:byline/amina-pandolfi ,
-                    tnse:docImprint/longanesi ;
+    dcterms:hasPart tnse:docAuthor\/michael-ende ,
+                    tnse:docTitle\/la-storia-infinita , 
+                    tnse:byline\/antonio-basoli ,
+                    tnse:byline\/amina-pandolfi ,
+                    tnse:docImprint\/longanesi ;
     schema:text """ Michael Ende 
                     La storia infinita  
                     dalla A alla Z 
@@ -270,12 +270,12 @@ tnse:frontispiece_2 a schema:CreativeWork ;
     skos:note "type=title_page" . 
 
 tnse:frontispiece_3 a schema:CreativeWork ; 
-    dcterms:hasPart tnse:figure/salani-istrici-logo , 
-                    tnse:docAuthor/michael-ende ,
-                    tnse:docTitle/la-storia-infinita> , 
-                    tnse:byline/antonio-basoli ,
-                    tnse:byline/amina-pandolfi ,
-                   tnse:figure/salaborsa-timbro-ragazzi> ;
+    dcterms:hasPart tnse:figure\/salani-istrici-logo , 
+                    tnse:docAuthor\/michael-ende ,
+                    tnse:docTitle\/la-storia-infinita , 
+                    tnse:byline\/antonio-basoli ,
+                    tnse:byline\/amina-pandolfi ,
+                   tnse:figure\/salaborsa-timbro-ragazzi ;
     schema:text """ "salani_istrici-logo" 
                     Michael Ende 
                     La storia infinita  
@@ -287,24 +287,24 @@ tnse:frontispiece_3 a schema:CreativeWork ;
                     "salaborsa-timbro-ragazzi"""@it ; 
     skos:note "type=title_page" . 
 
-tnse:figure/salani-istrici-logo a schema:ImageObject ; 
+tnse:figure\/salani-istrici-logo a schema:ImageObject ; 
     schema:name "salani istrici logo" ; 
     schema:contentURL "https://github.com/agnepesa-art/The-neverending-story-project/blob/main/edition/salani_istrici_logo.jpg" . 
 
-tnse:figure/salaborsa_timbro_ragazzi a schema:ImageObject ; 
+tnse:figure\/salaborsa_timbro_ragazzi a schema:ImageObject ; 
     schema:name "salaborsa timbro ragazzi" ; 
     schema:contentURL "https://github.com/agnepesa-art/The-neverending-story-project/blob/main/edition/salaborsa_timbro_ragazzi.jpg" . 
 
 tnse:page_195 a schema:CreativeWork ; 
-    dcterms:hasPart tnse:fw/page-number ,
-                    tnse:p/timi-pioli-emise ,
-                    tnse:p/ora-vedeva-davanti , 
-                    tnse:p/ma-per-un-lungo , 
-                    tnse:p/eccomi-sono-qui , 
-                    tnse:p/a-poco-a-poco , 
-                    tnse:p/La-storia-infinita , 
-                    tnse:p/i-pensieri-di ,
-                    tnse:p/L'infanta-imperatrice ; 
+    dcterms:hasPart tnse:fw\/page-number ,
+                    tnse:p\/timi-pioli-emise ,
+                    tnse:p\/ora-vedeva-davanti , 
+                    tnse:p\/ma-per-un-lungo , 
+                    tnse:p\/eccomi-sono-qui , 
+                    tnse:p\/a-poco-a-poco , 
+                    tnse:p\/La-storia-infinita , 
+                    tnse:p\/i-pensieri-di ,
+                    tnse:p\/Linfanta-imperatrice ; 
     schema:text """page_195
                 timi pioli, emise un lieve sospiro e si guardò: la sua ampia veste 
                 bianca era tutta strappata, lacerata da pioli, spuntoni e spine. 
